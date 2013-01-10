@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "sqlite3.h"
 
 // Geoloqi SDKs
 #import "LQConfig.h"
@@ -109,6 +110,23 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [LQSession handlePush:userInfo];
+}
+
+#pragma mark - Geoloqi AppDelegate methods
++ (NSString *)cacheDatabasePathForCategory:(NSString *)category
+{
+	NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	return [caches stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.lol.sqlite", category]];
+}
+
+// clears all rows from a table in a database
++ (void)deleteFromTable:(NSString *)collectionName forCategory:(NSString *)category
+{
+    sqlite3 *db;
+    if(sqlite3_open([[AppDelegate cacheDatabasePathForCategory:category] UTF8String], &db) == SQLITE_OK) {
+        NSString *sql = [NSString stringWithFormat:@"DELETE FROM '%@'", collectionName];
+        sqlite3_exec(db, [sql UTF8String], NULL, NULL, NULL);
+    }
 }
 
 @end

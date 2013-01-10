@@ -16,4 +16,9 @@
 
 @property (strong, nonatomic) ViewController *viewController;
 
+
+#pragma mark - Geoloqi AppDelegate methods
++ (NSString *)cacheDatabasePathForCategory:(NSString *)category;
++ (void)deleteFromTable:(NSString *)collectionName forCategory:(NSString *)category;
+
 @end
