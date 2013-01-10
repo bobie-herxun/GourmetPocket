@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "LQActivityManager.h"
+
+@interface ViewController : UIViewController{
+    LQActivityManager* activityManager;
+}
+
+- (IBAction)mainPageQuery:(id)sender;
+
+- (void)refresh;
 
 @end
