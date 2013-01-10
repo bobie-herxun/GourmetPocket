@@ -10,6 +10,7 @@
 		802CAE46169DC7F7008719F9 /* SampleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE45169DC7F7008719F9 /* SampleCode.m */; };
 		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
 		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
+		802CAE6A169ECA92008719F9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802CAE69169ECA92008719F9 /* CoreFoundation.framework */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 		802CAE45169DC7F7008719F9 /* SampleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleCode.m; path = ../GeoloqiSDK/SampleCode.m; sourceTree = "<group>"; };
 		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
 		802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big_114.png; sourceTree = "<group>"; };
+		802CAE69169ECA92008719F9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802CAE6A169ECA92008719F9 /* CoreFoundation.framework in Frameworks */,
 				80BE087F169C294300AC4A8F /* MessageUI.framework in Frameworks */,
 				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
 				80BE087B169C22CE00AC4A8F /* libsqlite3.dylib in Frameworks */,
@@ -93,6 +96,7 @@
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
 				802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */,
 				802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */,
 				80BE087E169C294300AC4A8F /* MessageUI.framework */,
@@ -311,12 +315,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -335,8 +340,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
