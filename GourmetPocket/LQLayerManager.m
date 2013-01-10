@@ -7,8 +7,10 @@
 //
 
 #import "LQLayerManager.h"
-//#import "LOLDatabase.h"
-#import "LQAppDelegate.h"
+#import "LOLDatabase.h"
+#import "LQSDKUtils.h"
+#import "LQSession.h"
+#import "AppDelegate.h"
 
 @implementation LQLayerManager {
     NSMutableArray *layers;
@@ -45,7 +47,7 @@ static NSString *const kLQLayerIDKey = @"layer_id";
 {
     self = [super init];
     if (self) {
-        db = [[LOLDatabase alloc] initWithPath:[LQAppDelegate cacheDatabasePathForCategory:kLQLayerCategoryName]];
+        db = [[LOLDatabase alloc] initWithPath:[AppDelegate cacheDatabasePathForCategory:kLQLayerCategoryName]];
         db.serializer = ^(id object){
             return [LQSDKUtils dataWithJSONObject:object error:NULL];
         };
@@ -134,7 +136,7 @@ static NSString *const kLQLayerIDKey = @"layer_id";
 - (void)manageSubscriptionForLayerAtIndex:(NSInteger)index subscribe:(BOOL)subscribe
 {
     if (subscribe)
-        [LQAppDelegate registerForPushNotificationsIfNotYetRegistered];
+        [AppDelegate registerForPushNotificationsIfNotYetRegistered];
     
     LQSession *session = [LQSession savedSession];
     NSDictionary *layer = [layers objectAtIndex:index];

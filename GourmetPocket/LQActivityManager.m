@@ -8,7 +8,8 @@
 
 #import "LQActivityManager.h"
 #import "LOLDatabase.h"
-#import "LQAppDelegate.h"
+#import "AppDelegate.h"
+#import "LQSession.h"
 #import "LQSDKUtils.h"
 #import "NSString+URLEncoding.h"
 
@@ -44,7 +45,7 @@ static NSString *const kLQActivityCollectionName = @"LQActivities";
 {
     self = [super init];
     if (self) {
-        db = [[LOLDatabase alloc] initWithPath:[LQAppDelegate cacheDatabasePathForCategory:kLQActivityCategoryName]];
+        db = [[LOLDatabase alloc] initWithPath:[AppDelegate cacheDatabasePathForCategory:kLQActivityCategoryName]];
         db.serializer = ^(id object){
             return [LQSDKUtils dataWithJSONObject:object error:NULL];
         };
@@ -93,7 +94,7 @@ static NSString *const kLQActivityCollectionName = @"LQActivities";
 {
     // reset local arrays and database
     NSMutableArray *_activities = [NSMutableArray new];
-    [LQAppDelegate deleteFromTable:kLQActivityCollectionName forCategory:kLQActivityCategoryName];
+    [AppDelegate deleteFromTable:kLQActivityCollectionName forCategory:kLQActivityCategoryName];
     
     [self reloadActivityFromAPI:@"/timeline/messages" onSuccess:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
         for (NSDictionary *item in [responseDictionary objectForKey:@"items"]) {

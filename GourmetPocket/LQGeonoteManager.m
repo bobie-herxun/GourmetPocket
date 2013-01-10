@@ -8,7 +8,9 @@
 
 #import "LQGeonoteManager.h"
 #import "LOLDatabase.h"
-#import "LQAppDelegate.h"
+#import "LQSession.h"
+#import "LQSDKUtils.h"
+#import "AppDelegate.h"
 
 @implementation LQGeonoteManager {
     NSMutableArray *geonotes;
@@ -41,7 +43,7 @@ static NSString *const kLQGeonoteDeletePath = @"/trigger/delete";
 {
     self = [super init];
     if (self) {
-        db = [[LOLDatabase alloc] initWithPath:[LQAppDelegate cacheDatabasePathForCategory:kLQGeonoteCategoryName]];
+        db = [[LOLDatabase alloc] initWithPath:[AppDelegate cacheDatabasePathForCategory:kLQGeonoteCategoryName]];
         db.serializer = ^(id object){
             return [LQSDKUtils dataWithJSONObject:object error:NULL];
         };
@@ -68,7 +70,7 @@ static NSString *const kLQGeonoteDeletePath = @"/trigger/delete";
 {
     // reset local arrays and database
     NSMutableArray *_geonotes = [NSMutableArray new];
-    [LQAppDelegate deleteFromTable:kLQGeonoteCollectionName forCategory:kLQGeonoteCategoryName];
+    [AppDelegate deleteFromTable:kLQGeonoteCollectionName forCategory:kLQGeonoteCategoryName];
     
     LQSession *session = [LQSession savedSession];
     NSURLRequest *request = [session requestWithMethod:@"GET"
