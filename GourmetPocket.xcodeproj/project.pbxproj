@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		802CAE46169DC7F7008719F9 /* SampleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE45169DC7F7008719F9 /* SampleCode.m */; };
+		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
+		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		802CAE44169DC7F7008719F9 /* SampleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleCode.h; path = ../GeoloqiSDK/SampleCode.h; sourceTree = "<group>"; };
 		802CAE45169DC7F7008719F9 /* SampleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleCode.m; path = ../GeoloqiSDK/SampleCode.m; sourceTree = "<group>"; };
+		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
+		802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big_114.png; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +93,8 @@
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */,
+				802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */,
 				80BE087E169C294300AC4A8F /* MessageUI.framework */,
 				80BE087C169C22D700AC4A8F /* CoreLocation.framework */,
 				80BE087A169C22CE00AC4A8F /* libsqlite3.dylib */,
@@ -241,6 +247,8 @@
 				80BE085A169C146400AC4A8F /* GourmetPocket_splash.png in Resources */,
 				80BE085C169C148400AC4A8F /* Default@2x.png in Resources */,
 				80BE085E169C149100AC4A8F /* Default.png in Resources */,
+				802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */,
+				802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +297,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bobie Chen (68S77NE7R9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bobie Chen (68S77NE7R9)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -305,6 +314,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -317,7 +328,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bobie Chen (68S77NE7R9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bobie Chen (68S77NE7R9)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -326,6 +338,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
