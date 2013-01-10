@@ -20,6 +20,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     activityManager = [LQActivityManager sharedManager];
+    
+    [self refresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +47,8 @@
         {
             
         }
+        
+        NSLog(@"activity refresh");
         
         // Tell the table to reload
         //[self.tableView reloadData];
