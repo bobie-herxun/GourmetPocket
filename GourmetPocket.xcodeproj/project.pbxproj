@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */; };
+		2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */; };
 		802CAE46169DC7F7008719F9 /* SampleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE45169DC7F7008719F9 /* SampleCode.m */; };
 		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
 		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
@@ -37,17 +39,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C014BDE169F055B00D07196 /* LQJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQJSONRequestOperation.h; sourceTree = "<group>"; };
+		2C014BDF169F055B00D07196 /* LQSDKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQSDKUtils.h; sourceTree = "<group>"; };
+		2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		2C014BE2169F066C00D07196 /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOLDatabase.h; path = GeoloqiSDK_Utility/LOLDatabase.h; sourceTree = "<group>"; };
+		2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		802CAE44169DC7F7008719F9 /* SampleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleCode.h; path = ../GeoloqiSDK/SampleCode.h; sourceTree = "<group>"; };
 		802CAE45169DC7F7008719F9 /* SampleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleCode.m; path = ../GeoloqiSDK/SampleCode.m; sourceTree = "<group>"; };
 		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
 		802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big_114.png; sourceTree = "<group>"; };
 		802CAE69169ECA92008719F9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		802CAE77169ED5EC008719F9 /* LQActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQActivityManager.h; sourceTree = "<group>"; };
-		802CAE78169ED5EC008719F9 /* LQActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQActivityManager.m; sourceTree = "<group>"; };
-		802CAE79169ED5EC008719F9 /* LQGeonoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQGeonoteManager.h; sourceTree = "<group>"; };
-		802CAE7A169ED5EC008719F9 /* LQGeonoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQGeonoteManager.m; sourceTree = "<group>"; };
-		802CAE7B169ED5EC008719F9 /* LQLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQLayerManager.h; sourceTree = "<group>"; };
-		802CAE7C169ED5EC008719F9 /* LQLayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQLayerManager.m; sourceTree = "<group>"; };
+		802CAE77169ED5EC008719F9 /* LQActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQActivityManager.h; path = GourmetPocket/LQActivityManager.h; sourceTree = "<group>"; };
+		802CAE78169ED5EC008719F9 /* LQActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQActivityManager.m; path = GourmetPocket/LQActivityManager.m; sourceTree = "<group>"; };
+		802CAE79169ED5EC008719F9 /* LQGeonoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQGeonoteManager.h; path = GourmetPocket/LQGeonoteManager.h; sourceTree = "<group>"; };
+		802CAE7A169ED5EC008719F9 /* LQGeonoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQGeonoteManager.m; path = GourmetPocket/LQGeonoteManager.m; sourceTree = "<group>"; };
+		802CAE7B169ED5EC008719F9 /* LQLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQLayerManager.h; path = GourmetPocket/LQLayerManager.h; sourceTree = "<group>"; };
+		802CAE7C169ED5EC008719F9 /* LQLayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQLayerManager.m; path = GourmetPocket/LQLayerManager.m; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +99,7 @@
 				80BE087F169C294300AC4A8F /* MessageUI.framework in Frameworks */,
 				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
 				80BE087B169C22CE00AC4A8F /* libsqlite3.dylib in Frameworks */,
+				2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */,
 				80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */,
 				80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */,
 				80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */,
@@ -102,7 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		802CAE76169ED5C1008719F9 /* APIManagers */ = {
+		2C014BE0169F062600D07196 /* GeoloqiSDK_Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */,
+				2C014BE2169F066C00D07196 /* LOLDatabase.h */,
+				2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */,
+			);
+			name = GeoloqiSDK_Utility;
+			sourceTree = "<group>";
+		};
+		2C014BE5169F093C00D07196 /* GeoloqiSDK_APIManagers */ = {
 			isa = PBXGroup;
 			children = (
 				802CAE77169ED5EC008719F9 /* LQActivityManager.h */,
@@ -112,15 +131,14 @@
 				802CAE7B169ED5EC008719F9 /* LQLayerManager.h */,
 				802CAE7C169ED5EC008719F9 /* LQLayerManager.m */,
 			);
-			name = APIManagers;
+			name = GeoloqiSDK_APIManagers;
 			sourceTree = "<group>";
 		};
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */,
 				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
-				802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */,
-				802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */,
 				80BE087E169C294300AC4A8F /* MessageUI.framework */,
 				80BE087C169C22D700AC4A8F /* CoreLocation.framework */,
 				80BE087A169C22CE00AC4A8F /* libsqlite3.dylib */,
@@ -129,6 +147,8 @@
 				80BE084E169C13A200AC4A8F /* icons and image */,
 				80BE0831169C10AA00AC4A8F /* GourmetPocket */,
 				80BE0870169C204A00AC4A8F /* GeoloqiSDK */,
+				2C014BE5169F093C00D07196 /* GeoloqiSDK_APIManagers */,
+				2C014BE0169F062600D07196 /* GeoloqiSDK_Utility */,
 				80BE082A169C10AA00AC4A8F /* Frameworks */,
 				80BE0828169C10AA00AC4A8F /* Products */,
 			);
@@ -155,7 +175,6 @@
 		80BE0831169C10AA00AC4A8F /* GourmetPocket */ = {
 			isa = PBXGroup;
 			children = (
-				802CAE76169ED5C1008719F9 /* APIManagers */,
 				80BE0868169C1DBB00AC4A8F /* JSONKit */,
 				80BE0867169C1D9500AC4A8F /* LQConfig.h */,
 				80BE083A169C10AA00AC4A8F /* AppDelegate.h */,
@@ -187,6 +206,8 @@
 		80BE084E169C13A200AC4A8F /* icons and image */ = {
 			isa = PBXGroup;
 			children = (
+				802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */,
+				802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */,
 				80BE0859169C146400AC4A8F /* GourmetPocket_splash.png */,
 			);
 			name = "icons and image";
@@ -204,6 +225,8 @@
 		80BE0870169C204A00AC4A8F /* GeoloqiSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2C014BDE169F055B00D07196 /* LQJSONRequestOperation.h */,
+				2C014BDF169F055B00D07196 /* LQSDKUtils.h */,
 				80BE0871169C204A00AC4A8F /* Geoloqi.h */,
 				80BE0872169C204A00AC4A8F /* libGeoloqi-Debug.a */,
 				80BE0873169C204A00AC4A8F /* libGeoloqi-Release.a */,
@@ -294,6 +317,7 @@
 				802CAE7D169ED5EC008719F9 /* LQActivityManager.m in Sources */,
 				802CAE7E169ED5EC008719F9 /* LQGeonoteManager.m in Sources */,
 				802CAE7F169ED5EC008719F9 /* LQLayerManager.m in Sources */,
+				2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +410,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GeoloqiSDK\"",
+					"\"$(SRCROOT)/GeoloqiSDK_APIManagers\"",
+					"\"$(SRCROOT)/GeoloqiSDK_Utility\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -401,6 +427,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GeoloqiSDK\"",
+					"\"$(SRCROOT/GeoloqiSDK_Utility\"\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
