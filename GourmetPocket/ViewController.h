@@ -12,10 +12,18 @@
 
 @interface ViewController : UIViewController{
     LQActivityManager* activityManager;
+    UINavigationController* m_navigationController;
+    
+    IBOutlet UILabel *labelResult;
+    IBOutlet UIButton *btnLogIn;
 }
 
+#pragma mark - IBActions
 - (IBAction)mainPageQuery:(id)sender;
+- (IBAction)userLogIn:(id)sender;
+- (IBAction)addTrigger:(id)sender;
 
+#pragma mark - methods
 - (void)refresh;
 
 @end

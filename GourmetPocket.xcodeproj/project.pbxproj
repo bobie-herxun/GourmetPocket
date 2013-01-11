@@ -16,6 +16,16 @@
 		802CAE7D169ED5EC008719F9 /* LQActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE78169ED5EC008719F9 /* LQActivityManager.m */; };
 		802CAE7E169ED5EC008719F9 /* LQGeonoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE7A169ED5EC008719F9 /* LQGeonoteManager.m */; };
 		802CAE7F169ED5EC008719F9 /* LQLayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE7C169ED5EC008719F9 /* LQLayerManager.m */; };
+		802CAE8B169FC518008719F9 /* AddTriggerMappViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE89169FC518008719F9 /* AddTriggerMappViewController.m */; };
+		802CAE8C169FC518008719F9 /* AddTriggerMappViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE8A169FC518008719F9 /* AddTriggerMappViewController.xib */; };
+		802CAE97169FD8ED008719F9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802CAE96169FD8ED008719F9 /* MapKit.framework */; };
+		802CAE9A169FFA42008719F9 /* LQGeonote.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE99169FFA42008719F9 /* LQGeonote.m */; };
+		802CAEA3169FFD77008719F9 /* map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE9D169FFD77008719F9 /* map-marker.png */; };
+		802CAEA4169FFD77008719F9 /* map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE9E169FFD77008719F9 /* map-marker@2x.png */; };
+		802CAEA5169FFD77008719F9 /* map-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE9F169FFD77008719F9 /* map-x.png */; };
+		802CAEA6169FFD77008719F9 /* map-x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA0169FFD77008719F9 /* map-x@2x.png */; };
+		802CAEA7169FFD77008719F9 /* marker-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA1169FFD77008719F9 /* marker-shadow.png */; };
+		802CAEA8169FFD77008719F9 /* marker-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA2169FFD77008719F9 /* marker-shadow@2x.png */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -56,6 +66,19 @@
 		802CAE7A169ED5EC008719F9 /* LQGeonoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQGeonoteManager.m; path = GourmetPocket/LQGeonoteManager.m; sourceTree = "<group>"; };
 		802CAE7B169ED5EC008719F9 /* LQLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQLayerManager.h; path = GourmetPocket/LQLayerManager.h; sourceTree = "<group>"; };
 		802CAE7C169ED5EC008719F9 /* LQLayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQLayerManager.m; path = GourmetPocket/LQLayerManager.m; sourceTree = "<group>"; };
+		802CAE88169FC518008719F9 /* AddTriggerMappViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTriggerMappViewController.h; sourceTree = "<group>"; };
+		802CAE89169FC518008719F9 /* AddTriggerMappViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTriggerMappViewController.m; sourceTree = "<group>"; };
+		802CAE8A169FC518008719F9 /* AddTriggerMappViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTriggerMappViewController.xib; sourceTree = "<group>"; };
+		802CAE96169FD8ED008719F9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		802CAE98169FFA42008719F9 /* LQGeonote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQGeonote.h; path = GeoloqiSDK_Utility/LQGeonote.h; sourceTree = "<group>"; };
+		802CAE99169FFA42008719F9 /* LQGeonote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQGeonote.m; path = GeoloqiSDK_Utility/LQGeonote.m; sourceTree = "<group>"; };
+		802CAE9B169FFAE8008719F9 /* LQGeonoteDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQGeonoteDelegate.h; path = GeoloqiSDK_Utility/LQGeonoteDelegate.h; sourceTree = "<group>"; };
+		802CAE9D169FFD77008719F9 /* map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-marker.png"; path = "GourmetPocket/Graphics/map-marker.png"; sourceTree = "<group>"; };
+		802CAE9E169FFD77008719F9 /* map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-marker@2x.png"; path = "GourmetPocket/Graphics/map-marker@2x.png"; sourceTree = "<group>"; };
+		802CAE9F169FFD77008719F9 /* map-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-x.png"; path = "GourmetPocket/Graphics/map-x.png"; sourceTree = "<group>"; };
+		802CAEA0169FFD77008719F9 /* map-x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-x@2x.png"; path = "GourmetPocket/Graphics/map-x@2x.png"; sourceTree = "<group>"; };
+		802CAEA1169FFD77008719F9 /* marker-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "marker-shadow.png"; path = "GourmetPocket/Graphics/marker-shadow.png"; sourceTree = "<group>"; };
+		802CAEA2169FFD77008719F9 /* marker-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "marker-shadow@2x.png"; path = "GourmetPocket/Graphics/marker-shadow@2x.png"; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,9 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
+				802CAE97169FD8ED008719F9 /* MapKit.framework in Frameworks */,
 				802CAE6A169ECA92008719F9 /* CoreFoundation.framework in Frameworks */,
 				80BE087F169C294300AC4A8F /* MessageUI.framework in Frameworks */,
-				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
 				80BE087B169C22CE00AC4A8F /* libsqlite3.dylib in Frameworks */,
 				2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */,
 				80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */,
@@ -114,6 +138,9 @@
 		2C014BE0169F062600D07196 /* GeoloqiSDK_Utility */ = {
 			isa = PBXGroup;
 			children = (
+				802CAE9B169FFAE8008719F9 /* LQGeonoteDelegate.h */,
+				802CAE98169FFA42008719F9 /* LQGeonote.h */,
+				802CAE99169FFA42008719F9 /* LQGeonote.m */,
 				2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */,
 				2C014BE2169F066C00D07196 /* LOLDatabase.h */,
 				2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */,
@@ -134,9 +161,23 @@
 			name = GeoloqiSDK_APIManagers;
 			sourceTree = "<group>";
 		};
+		802CAE9C169FFD60008719F9 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				802CAE9D169FFD77008719F9 /* map-marker.png */,
+				802CAE9E169FFD77008719F9 /* map-marker@2x.png */,
+				802CAE9F169FFD77008719F9 /* map-x.png */,
+				802CAEA0169FFD77008719F9 /* map-x@2x.png */,
+				802CAEA1169FFD77008719F9 /* marker-shadow.png */,
+				802CAEA2169FFD77008719F9 /* marker-shadow@2x.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				802CAE96169FD8ED008719F9 /* MapKit.framework */,
 				2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */,
 				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
 				80BE087E169C294300AC4A8F /* MessageUI.framework */,
@@ -149,6 +190,7 @@
 				80BE0870169C204A00AC4A8F /* GeoloqiSDK */,
 				2C014BE5169F093C00D07196 /* GeoloqiSDK_APIManagers */,
 				2C014BE0169F062600D07196 /* GeoloqiSDK_Utility */,
+				802CAE9C169FFD60008719F9 /* Graphics */,
 				80BE082A169C10AA00AC4A8F /* Frameworks */,
 				80BE0828169C10AA00AC4A8F /* Products */,
 			);
@@ -182,6 +224,9 @@
 				80BE0843169C10AA00AC4A8F /* ViewController.h */,
 				80BE0844169C10AA00AC4A8F /* ViewController.m */,
 				80BE0846169C10AA00AC4A8F /* ViewController.xib */,
+				802CAE88169FC518008719F9 /* AddTriggerMappViewController.h */,
+				802CAE89169FC518008719F9 /* AddTriggerMappViewController.m */,
+				802CAE8A169FC518008719F9 /* AddTriggerMappViewController.xib */,
 				802CAE44169DC7F7008719F9 /* SampleCode.h */,
 				802CAE45169DC7F7008719F9 /* SampleCode.m */,
 				80BE0832169C10AA00AC4A8F /* Supporting Files */,
@@ -299,6 +344,13 @@
 				80BE085E169C149100AC4A8F /* Default.png in Resources */,
 				802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */,
 				802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */,
+				802CAE8C169FC518008719F9 /* AddTriggerMappViewController.xib in Resources */,
+				802CAEA3169FFD77008719F9 /* map-marker.png in Resources */,
+				802CAEA4169FFD77008719F9 /* map-marker@2x.png in Resources */,
+				802CAEA5169FFD77008719F9 /* map-x.png in Resources */,
+				802CAEA6169FFD77008719F9 /* map-x@2x.png in Resources */,
+				802CAEA7169FFD77008719F9 /* marker-shadow.png in Resources */,
+				802CAEA8169FFD77008719F9 /* marker-shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +370,8 @@
 				802CAE7E169ED5EC008719F9 /* LQGeonoteManager.m in Sources */,
 				802CAE7F169ED5EC008719F9 /* LQLayerManager.m in Sources */,
 				2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */,
+				802CAE8B169FC518008719F9 /* AddTriggerMappViewController.m in Sources */,
+				802CAE9A169FFA42008719F9 /* LQGeonote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

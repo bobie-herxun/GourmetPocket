@@ -152,6 +152,7 @@ static NSString *const kLQActivityCollectionName = @"LQActivities";
     [activities sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
         NSString *pub1 = [obj1 objectForKey:@"published"];
         NSString *pub2 = [obj2 objectForKey:@"published"];
+        NSLog(@"****** pub2: %@, pub1: %@", pub2, pub1);
         return [pub2 localizedCaseInsensitiveCompare:pub1];
     }];
 }

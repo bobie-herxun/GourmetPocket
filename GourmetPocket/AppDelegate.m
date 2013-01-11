@@ -30,7 +30,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    UINavigationController* navController =
+    [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    
+    navController.navigationBar.barStyle = UIBarStyleBlack;
+    navController.navigationBar.backItem.title = @"Home";
+    self.window.rootViewController = navController;
+    navController.title = @"GourmetPocket";
     
     [LQSession setAPIKey:LQ_APIKey];
     
@@ -74,7 +81,7 @@
     
     [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
     
-    sleep(3);
+    sleep(2);
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -105,6 +112,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
+{
+    // For push notification support, we need to get the push token from UIApplication via this method.
+    // If you like, you can be notified when the relevant web service call to the Geoloqi API succeeds.
+    [LQSession registerDeviceToken:deviceToken withMode:LQPushNotificationModeDev];
+    
+    // When you're ready to publish your project to the app store, you should switch to "live" push mode.
+    // [LQSession registerDeviceToken:deviceToken withMode:LQPushNotificationModeLive];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
+{
+    [LQSession handleDidFailToRegisterForRemoteNotifications:error];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
