@@ -33,6 +33,8 @@
     
     
     [self zoomMapToLocation:[[[CLLocationManager alloc] init] location]];
+    
+    m_geonote = [[LQGeonote alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +42,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textFieldGeonote resignFirstResponder];
+}
+
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+//{
+//    [textFieldGeonote becomeFirstResponder];
+//}
 
 #pragma mark - Methods
 - (void)zoomMapToLocation:(CLLocation *)_location
@@ -65,9 +77,11 @@
 	MKCoordinateSpan currentSpan = m_mapView.region.span;
 	// 111.0 km/degree of latitude * 1000 m/km * current delta * 20% of the half-screen width
 	CGFloat desiredRadius = 111.0 * 1000 * currentSpan.latitudeDelta * 0.2;
+    NSLog(@"Map center: %f, %f", m_mapView.centerCoordinate.latitude, m_mapView.centerCoordinate.longitude);
     m_geonote.location = [[CLLocation alloc] initWithLatitude:m_mapView.centerCoordinate.latitude
                                                        longitude:m_mapView.centerCoordinate.longitude];
 	m_geonote.radius = desiredRadius < MINIMUM_GEONOTE_RADIUS ? MINIMUM_GEONOTE_RADIUS : desiredRadius;
+    m_geonote.text = textFieldGeonote.text;
 }
 
 - (void)liftGeonotePin
@@ -127,7 +141,6 @@
 - (IBAction)createNewGeonote:(id)sender {
 
     [self setGeonotePositionFromMapCenter];
-    //[self.navigationController popViewControllerAnimated:YES];
     
     //[[MBProgressHUD showHUDAddedTo:self.view animated:YES] setLabelText:@"Saving"];
     [m_geonote save:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
@@ -148,6 +161,8 @@
             NSLog(@"Create Geonote successfully");
         }
     }];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc {
@@ -155,6 +170,7 @@
     [_geonotePin release];
     [_geonotePinShadow release];
     [_geonoteTarget release];
+    [textFieldGeonote release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -163,6 +179,8 @@
     [self setGeonotePin:nil];
     [self setGeonotePinShadow:nil];
     [self setGeonoteTarget:nil];
+    [textFieldGeonote release];
+    textFieldGeonote = nil;
     [super viewDidUnload];
 }
 @end

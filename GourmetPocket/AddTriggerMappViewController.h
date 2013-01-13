@@ -16,10 +16,12 @@
 #define PIN_SHADOW_Y_DELTA     20
 #define PIN_ANIMATION_DURATION 0.2
 
-@interface AddTriggerMappViewController : UIViewController{
+@interface AddTriggerMappViewController : UIViewController <UITextFieldDelegate>
+{
     IBOutlet MKMapView *m_mapView;
     LQGeonote* m_geonote;
     BOOL pinUp;
+    IBOutlet UITextField *textFieldGeonote;
 }
 
 //@property (nonatomic, strong) IBOutlet UIImageView *geonotePin;
