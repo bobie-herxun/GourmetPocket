@@ -59,8 +59,7 @@ static NSString *const constPassword = @"ahchie77";
             //[self registerForPushNotifications];
 
             // Start tracking location in "adaptive" mode, which will show the location prompt
-            //[[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
-            [[LQTracker sharedTracker] setProfile:LQTrackerProfileRealtime];
+            [[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
             
             // Post a notification so your UI can show the appropriate view
             [[NSNotificationCenter defaultCenter] postNotificationName:@"GourmetPocket Push"
