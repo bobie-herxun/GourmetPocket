@@ -63,6 +63,7 @@
 - (BOOL)isSaveable
 {
     BOOL r = NO;
+    maxTextLength = 140;
     if (maxTextLength > 0) {
         r = [self isSaveable:maxTextLength];
     }
