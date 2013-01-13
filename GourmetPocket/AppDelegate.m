@@ -79,12 +79,24 @@
         }];
     }
     
+    // You may wish to listen for the notification the SDK sends when a user has logged in successfully
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(authenticationDidSucceed:)
+                                                 name:LQTrackerLocationChangedNotification
+                                               object:nil];
+    
     [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
     
     sleep(2);
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)authenticationDidSucceed:(NSNotificationCenter *)notification
+{
+    // You can dismiss your login screen here, or have some other indication the login was successful
+    // ...
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
