@@ -27,17 +27,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    
-    UINavigationController* navController =
-    [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    
-    navController.navigationBar.barStyle = UIBarStyleBlack;
-    navController.navigationBar.backItem.title = @"Home";
-    self.window.rootViewController = navController;
-    navController.title = @"GourmetPocket";
+//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+//    // Override point for customization after application launch.
+//    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+//    
+//    UINavigationController* navController =
+//    [[UINavigationController alloc] initWithRootViewController:self.viewController];
+//    
+//    navController.navigationBar.barStyle = UIBarStyleBlack;
+//    navController.navigationBar.backItem.title = @"Home";
+//    self.window.rootViewController = navController;
+//    navController.title = @"GourmetPocket";
     
     [LQSession setAPIKey:LQ_APIKey];
     
@@ -89,7 +89,7 @@
     
     sleep(2);
     
-    [self.window makeKeyAndVisible];
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 

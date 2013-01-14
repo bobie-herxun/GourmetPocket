@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MainViewController;
 
-@interface GroupTableViewController : UITableViewController
+@interface GroupTableViewController : UITableViewController{
+
+}
+
+- (IBAction)groupBackToMain:(id)sender;
 
 @end

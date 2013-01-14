@@ -10,4 +10,5 @@
 
 @interface ThirdPartyViewController : UIViewController
 
+- (IBAction)backToMain:(id)sender;
 @end

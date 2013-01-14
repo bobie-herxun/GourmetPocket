@@ -35,4 +35,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - methods of MainViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+}
+
+- (void)backToMain
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 @end

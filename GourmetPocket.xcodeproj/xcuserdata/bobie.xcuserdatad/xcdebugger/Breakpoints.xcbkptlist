@@ -190,13 +190,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GourmetPocket/AddTriggerMappViewController.h"
-         timestampString = "379584317.655715"
+         timestampString = "379843241.705123"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-createNewGeonote:"
-         landmarkType = "4">
+         startingLineNumber = "29"
+         endingLineNumber = "29"
+         landmarkName = "geonoteTarget"
+         landmarkType = "19">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -208,7 +208,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "118"
          endingLineNumber = "118"
-         landmarkName = "-m_mapView:regionWillChangeAnimated:"
+         landmarkName = "-dropGeonotePin"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "123"
          endingLineNumber = "123"
-         landmarkName = "-m_mapView:regionDidChangeAnimated:"
+         landmarkName = "-dropGeonotePin"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,7 +234,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "75"
          endingLineNumber = "75"
-         landmarkName = "-liftGeonotePin"
+         landmarkName = "-setGeonotePositionFromMapCenter"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -247,8 +247,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "129"
          endingLineNumber = "129"
-         landmarkName = "-createNewGeonote:"
-         landmarkType = "5">
+         landmarkName = "@implementation AddTriggerMappViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -260,7 +260,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "65"
          endingLineNumber = "65"
-         landmarkName = "-setGeonotePositionFromMapCenter"
+         landmarkName = "-zoomMapToLocation:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,8 +273,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "127"
          endingLineNumber = "127"
-         landmarkName = "-createNewGeonote:"
-         landmarkType = "5">
+         landmarkName = "@implementation AddTriggerMappViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -312,7 +312,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "136"
          endingLineNumber = "136"
-         landmarkName = "-createNewGeonote:"
+         landmarkName = "-m_mapView:regionDidChangeAnimated:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -338,7 +338,33 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "135"
          endingLineNumber = "135"
-         landmarkName = "-createNewGeonote:"
+         landmarkName = "-m_mapView:regionDidChangeAnimated:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "GourmetPocket/GroupTableViewController.m"
+         timestampString = "379845725.951444"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-groupBackToMain:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "GourmetPocket/MainViewController.m"
+         timestampString = "379845725.951444"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

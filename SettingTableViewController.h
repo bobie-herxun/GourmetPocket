@@ -10,4 +10,5 @@
 
 @interface SettingTableViewController : UITableViewController
 
+- (IBAction)backToMain:(id)sender;
 @end

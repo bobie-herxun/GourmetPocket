@@ -10,4 +10,5 @@
 
 @interface QuickViewController : UIViewController
 
+- (IBAction)backToMain:(id)sender;
 @end

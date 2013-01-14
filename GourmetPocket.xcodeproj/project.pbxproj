@@ -26,6 +26,12 @@
 		802CAEA6169FFD77008719F9 /* map-x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA0169FFD77008719F9 /* map-x@2x.png */; };
 		802CAEA7169FFD77008719F9 /* marker-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA1169FFD77008719F9 /* marker-shadow.png */; };
 		802CAEA8169FFD77008719F9 /* marker-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAEA2169FFD77008719F9 /* marker-shadow@2x.png */; };
+		808C42B316A3F29600B378F3 /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */; };
+		808C42E916A3F6C800B378F3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42E816A3F6C800B378F3 /* MainViewController.m */; };
+		808C42EC16A3F74800B378F3 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42EB16A3F74800B378F3 /* GroupTableViewController.m */; };
+		808C42EF16A3FE7000B378F3 /* QuickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42EE16A3FE7000B378F3 /* QuickViewController.m */; };
+		808C42F516A400E200B378F3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42F416A400E200B378F3 /* SettingTableViewController.m */; };
+		808C42F816A404A100B378F3 /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42F716A404A100B378F3 /* ThirdPartyViewController.m */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -79,6 +85,17 @@
 		802CAEA0169FFD77008719F9 /* map-x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-x@2x.png"; path = "GourmetPocket/Graphics/map-x@2x.png"; sourceTree = "<group>"; };
 		802CAEA1169FFD77008719F9 /* marker-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "marker-shadow.png"; path = "GourmetPocket/Graphics/marker-shadow.png"; sourceTree = "<group>"; };
 		802CAEA2169FFD77008719F9 /* marker-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "marker-shadow@2x.png"; path = "GourmetPocket/Graphics/marker-shadow@2x.png"; sourceTree = "<group>"; };
+		808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhoneMain.storyboard; path = ../iPhoneMain.storyboard; sourceTree = "<group>"; };
+		808C42E716A3F6C800B378F3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		808C42E816A3F6C800B378F3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		808C42EA16A3F74800B378F3 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
+		808C42EB16A3F74800B378F3 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
+		808C42ED16A3FE7000B378F3 /* QuickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickViewController.h; sourceTree = "<group>"; };
+		808C42EE16A3FE7000B378F3 /* QuickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickViewController.m; sourceTree = "<group>"; };
+		808C42F316A400E200B378F3 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingTableViewController.h; path = ../SettingTableViewController.h; sourceTree = "<group>"; };
+		808C42F416A400E200B378F3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewController.m; path = ../SettingTableViewController.m; sourceTree = "<group>"; };
+		808C42F616A404A100B378F3 /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdPartyViewController.h; path = ../ThirdPartyViewController.h; sourceTree = "<group>"; };
+		808C42F716A404A100B378F3 /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdPartyViewController.m; path = ../ThirdPartyViewController.m; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -217,6 +234,17 @@
 		80BE0831169C10AA00AC4A8F /* GourmetPocket */ = {
 			isa = PBXGroup;
 			children = (
+				808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */,
+				808C42E716A3F6C800B378F3 /* MainViewController.h */,
+				808C42E816A3F6C800B378F3 /* MainViewController.m */,
+				808C42ED16A3FE7000B378F3 /* QuickViewController.h */,
+				808C42EE16A3FE7000B378F3 /* QuickViewController.m */,
+				808C42EA16A3F74800B378F3 /* GroupTableViewController.h */,
+				808C42EB16A3F74800B378F3 /* GroupTableViewController.m */,
+				808C42F616A404A100B378F3 /* ThirdPartyViewController.h */,
+				808C42F716A404A100B378F3 /* ThirdPartyViewController.m */,
+				808C42F316A400E200B378F3 /* SettingTableViewController.h */,
+				808C42F416A400E200B378F3 /* SettingTableViewController.m */,
 				80BE0868169C1DBB00AC4A8F /* JSONKit */,
 				80BE0867169C1D9500AC4A8F /* LQConfig.h */,
 				80BE083A169C10AA00AC4A8F /* AppDelegate.h */,
@@ -351,6 +379,7 @@
 				802CAEA6169FFD77008719F9 /* map-x@2x.png in Resources */,
 				802CAEA7169FFD77008719F9 /* marker-shadow.png in Resources */,
 				802CAEA8169FFD77008719F9 /* marker-shadow@2x.png in Resources */,
+				808C42B316A3F29600B378F3 /* iPhoneMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +401,11 @@
 				2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */,
 				802CAE8B169FC518008719F9 /* AddTriggerMappViewController.m in Sources */,
 				802CAE9A169FFA42008719F9 /* LQGeonote.m in Sources */,
+				808C42E916A3F6C800B378F3 /* MainViewController.m in Sources */,
+				808C42EC16A3F74800B378F3 /* GroupTableViewController.m in Sources */,
+				808C42EF16A3FE7000B378F3 /* QuickViewController.m in Sources */,
+				808C42F516A400E200B378F3 /* SettingTableViewController.m in Sources */,
+				808C42F816A404A100B378F3 /* ThirdPartyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

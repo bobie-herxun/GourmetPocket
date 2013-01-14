@@ -24,9 +24,6 @@
     IBOutlet UITextField *textFieldGeonote;
 }
 
-//@property (nonatomic, strong) IBOutlet UIImageView *geonotePin;
-//@property (nonatomic, strong) IBOutlet UIImageView *geonotePinShadow;
-//@property (nonatomic, strong) IBOutlet UIImageView *geonoteTarget;
 @property (retain, nonatomic) IBOutlet UIImageView *geonotePin;
 @property (retain, nonatomic) IBOutlet UIImageView *geonotePinShadow;
 @property (retain, nonatomic) IBOutlet UIImageView *geonoteTarget;
