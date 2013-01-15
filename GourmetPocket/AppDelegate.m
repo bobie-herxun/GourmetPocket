@@ -15,13 +15,15 @@
 #import "LQTracker.h"
 
 #import "ViewController.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    //[_viewController release];
+    [_mainViewController release];
     [super dealloc];
 }
 
@@ -39,54 +41,55 @@
 //    self.window.rootViewController = navController;
 //    navController.title = @"GourmetPocket";
     
-    [LQSession setAPIKey:LQ_APIKey];
+//    [LQSession setAPIKey:LQ_APIKey];
+//    
+//    if ([LQSession savedSession])
+//    {
+//        // resume tracking in the previous state
+//        [LQTracker sharedTracker];
+//        // re-register for push-notificaton to tell the server that the user is still using the app
+//        [LQSession registerForPushNotificationsWithCallback:NULL];
+//    }
+//    else
+//    {
+//        [LQSession createAnonymousUserAccountWithUserInfo:nil completion:^(LQSession *session, NSError *error) {
+//            if(error) {
+//                NSLog(@"ERROR: Failed to create account: %@", error);
+//            } else {
+//                // Save the session to disk so it will be restored on next launch
+//                [LQSession setSavedSession:session];
+//                
+//                // Now register for push notifications
+//                // After the user approves, the app delegate method didRegisterForRemoteNotificationsWithDeviceToken will be called
+//                [LQSession registerForPushNotificationsWithCallback:^(NSData *deviceToken, NSError *error) {
+//                    if(error){
+//                        NSLog(@"Failed to register for push tokens: %@", error);
+//                    } else {
+//                        NSLog(@"Got a push token! %@", deviceToken);
+//                    }
+//                }];
+//                
+//                // Start tracking
+//                [[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
+//                
+//                // Note: You may not want to start tracking right here, and you may not want to register for push notifications now either.
+//                // You are better off putting off these until you absolutely need to, since they will show a popup prompt to the user.
+//                // It is somewhat annoying to see two prompts in a row before even getting a chance to use the app, so you should wait
+//                // until you need to show a map or until the user turns "on" some functionality before prompting for location access
+//                // and push notification permission.
+//            }
+//        }];
+//    }
     
-    if ([LQSession savedSession])
-    {
-        // resume tracking in the previous state
-        [LQTracker sharedTracker];
-        // re-register for push-notificaton to tell the server that the user is still using the app
-        [LQSession registerForPushNotificationsWithCallback:NULL];
-    }
-    else
-    {
-        [LQSession createAnonymousUserAccountWithUserInfo:nil completion:^(LQSession *session, NSError *error) {
-            if(error) {
-                NSLog(@"ERROR: Failed to create account: %@", error);
-            } else {
-                // Save the session to disk so it will be restored on next launch
-                [LQSession setSavedSession:session];
-                
-                // Now register for push notifications
-                // After the user approves, the app delegate method didRegisterForRemoteNotificationsWithDeviceToken will be called
-                [LQSession registerForPushNotificationsWithCallback:^(NSData *deviceToken, NSError *error) {
-                    if(error){
-                        NSLog(@"Failed to register for push tokens: %@", error);
-                    } else {
-                        NSLog(@"Got a push token! %@", deviceToken);
-                    }
-                }];
-                
-                // Start tracking
-                [[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
-                
-                // Note: You may not want to start tracking right here, and you may not want to register for push notifications now either.
-                // You are better off putting off these until you absolutely need to, since they will show a popup prompt to the user.
-                // It is somewhat annoying to see two prompts in a row before even getting a chance to use the app, so you should wait
-                // until you need to show a map or until the user turns "on" some functionality before prompting for location access
-                // and push notification permission.
-            }
-        }];
-    }
+//    // You may wish to listen for the notification the SDK sends when a user has logged in successfully
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(authenticationDidSucceed:)
+//                                                 name:LQTrackerLocationChangedNotification
+//                                               object:nil];
+//    
+//    [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
     
-    // You may wish to listen for the notification the SDK sends when a user has logged in successfully
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(authenticationDidSucceed:)
-                                                 name:LQTrackerLocationChangedNotification
-                                               object:nil];
-    
-    [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
-    
+    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     sleep(2);
     
 //    [self.window makeKeyAndVisible];
