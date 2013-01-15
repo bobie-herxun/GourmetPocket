@@ -402,35 +402,6 @@
         <image name="mainPage_quickSuggestion.png" width="276" height="130"/>
         <image name="mainPage_title.png" width="437" height="131"/>
     </resources>
-    <classes>
-        <class className="GroupTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="groupBackToMain:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-        </class>
-        <class className="QuickViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuickViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMain:"/>
-            </relationships>
-        </class>
-        <class className="SettingTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMain:"/>
-            </relationships>
-        </class>
-        <class className="ThirdPartyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThirdPartyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToMain:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
