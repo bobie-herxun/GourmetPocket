@@ -14,10 +14,10 @@
     int maxTextLength;
 }
 
-@property (nonatomic) CLLocation *location;
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) NSString *text;
-@property (nonatomic) id <LQGeonoteDelegate> delegate;
+@property (nonatomic, assign) CLLocation *location;
+@property (nonatomic, assign) CGFloat radius;
+@property (nonatomic, assign) NSString *text;
+@property (nonatomic, assign) id <LQGeonoteDelegate> delegate;
 
 - (id)initWithDelegate:(id<LQGeonoteDelegate>)delegate;
 
