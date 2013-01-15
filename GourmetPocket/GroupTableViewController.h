@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQLayerManager.h"
+
 @class MainViewController;
 
-@interface GroupTableViewController : UITableViewController
+@interface GroupTableViewController : UITableViewController{
+    LQLayerManager* m_geoloqiLayerManager;
+    NSMutableArray* jsonResult;
+}
 
 @property (nonatomic, assign) MainViewController* mainVC;
 

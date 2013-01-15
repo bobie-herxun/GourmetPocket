@@ -9,6 +9,8 @@
 #import "GroupTableViewController.h"
 #import "MainViewController.h"
 
+#define kBgQueue    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 @interface GroupTableViewController ()
 
 @end
@@ -33,12 +35,29 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    if (!m_geoloqiLayerManager)
+    {
+        m_geoloqiLayerManager = [[LQLayerManager alloc] init];
+    }
+    
+    dispatch_async(kBgQueue, ^{
+        [self performSelectorOnMainThread:@selector(fetchData)
+                               withObject:nil
+                            waitUntilDone:YES];
+    });
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - LQLayerManager Utilizations
+- (void)fetchData
+{
+    //NSLog(@"20130115 checkpoint, fetchData() called by thread");
 }
 
 #pragma mark - Table view data source
