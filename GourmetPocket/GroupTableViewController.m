@@ -7,6 +7,7 @@
 //
 
 #import "GroupTableViewController.h"
+#import "MainViewController.h"
 
 @interface GroupTableViewController ()
 
@@ -122,7 +123,7 @@
 #pragma mark - Methods
 
 - (IBAction)groupBackToMain:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.mainVC backToMain];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "GroupTableViewController.h"
 
 @interface MainViewController ()
 
@@ -39,12 +40,19 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    if ([segue.identifier isEqualToString:@"segueIdGroups"]) {
+        //GroupTableViewController* groupTableViewController = (GroupTableViewController*)[segue.destinationViewController rootViewController];
+        //GroupTableViewController* groupTableViewController = (GroupTableViewController*)(segue.destinationViewController);
+        UINavigationController* navViewController = segue.destinationViewController;
+        GroupTableViewController* groupTableViewController = [[navViewController viewControllers] lastObject];
+        groupTableViewController.mainVC = self;
+    }
 }
 
 - (void)backToMain
 {
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{;}];
 }
 
 @end

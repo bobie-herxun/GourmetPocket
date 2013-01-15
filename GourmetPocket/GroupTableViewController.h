@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 @class MainViewController;
 
-@interface GroupTableViewController : UITableViewController{
+@interface GroupTableViewController : UITableViewController
 
-}
+@property (nonatomic, assign) MainViewController* mainVC;
 
 - (IBAction)groupBackToMain:(id)sender;
 
