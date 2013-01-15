@@ -46,6 +46,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textFieldGeonote resignFirstResponder];
+    
+    return YES;
 }
 
 //- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
