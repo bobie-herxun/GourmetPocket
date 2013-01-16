@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */; };
 		2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */; };
-		802CAE46169DC7F7008719F9 /* SampleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 802CAE45169DC7F7008719F9 /* SampleCode.m */; };
 		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
 		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
 		802CAE6A169ECA92008719F9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802CAE69169ECA92008719F9 /* CoreFoundation.framework */; };
@@ -44,6 +43,7 @@
 		808C42EF16A3FE7000B378F3 /* QuickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42EE16A3FE7000B378F3 /* QuickViewController.m */; };
 		808C42F516A400E200B378F3 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42F416A400E200B378F3 /* SettingTableViewController.m */; };
 		808C42F816A404A100B378F3 /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808C42F716A404A100B378F3 /* ThirdPartyViewController.m */; };
+		80922A7F16A6B2B000F8DDE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -72,8 +72,6 @@
 		2C014BE2169F066C00D07196 /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOLDatabase.h; path = GeoloqiSDK_Utility/LOLDatabase.h; sourceTree = "<group>"; };
 		2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		802CAE44169DC7F7008719F9 /* SampleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleCode.h; path = ../GeoloqiSDK/SampleCode.h; sourceTree = "<group>"; };
-		802CAE45169DC7F7008719F9 /* SampleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleCode.m; path = ../GeoloqiSDK/SampleCode.m; sourceTree = "<group>"; };
 		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
 		802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big_114.png; sourceTree = "<group>"; };
 		802CAE69169ECA92008719F9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +109,7 @@
 		8064270016A5653B0031867A /* GeoloqiPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoloqiPlaces.m; sourceTree = "<group>"; };
 		8064270216A5653B0031867A /* GeoloqiLayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoloqiLayers.h; sourceTree = "<group>"; };
 		8064270316A5653C0031867A /* GeoloqiLayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoloqiLayers.m; sourceTree = "<group>"; };
+		8064270716A657390031867A /* GourmetPocket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GourmetPocket.entitlements; sourceTree = "<group>"; };
 		808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhoneMain.storyboard; path = ../iPhoneMain.storyboard; sourceTree = "<group>"; };
 		808C42E716A3F6C800B378F3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		808C42E816A3F6C800B378F3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		808C42F416A400E200B378F3 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingTableViewController.m; path = ../SettingTableViewController.m; sourceTree = "<group>"; };
 		808C42F616A404A100B378F3 /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdPartyViewController.h; path = ../ThirdPartyViewController.h; sourceTree = "<group>"; };
 		808C42F716A404A100B378F3 /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdPartyViewController.m; path = ../ThirdPartyViewController.m; sourceTree = "<group>"; };
+		80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80922A7F16A6B2B000F8DDE7 /* QuartzCore.framework in Frameworks */,
 				806426C116A55C600031867A /* CoreData.framework in Frameworks */,
 				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
 				802CAE97169FD8ED008719F9 /* MapKit.framework in Frameworks */,
@@ -247,8 +248,6 @@
 				802CAE88169FC518008719F9 /* AddTriggerMappViewController.h */,
 				802CAE89169FC518008719F9 /* AddTriggerMappViewController.m */,
 				802CAE8A169FC518008719F9 /* AddTriggerMappViewController.xib */,
-				802CAE44169DC7F7008719F9 /* SampleCode.h */,
-				802CAE45169DC7F7008719F9 /* SampleCode.m */,
 			);
 			name = "old layouts";
 			sourceTree = "<group>";
@@ -256,6 +255,7 @@
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */,
 				806426C016A55C600031867A /* CoreData.framework */,
 				802CAE96169FD8ED008719F9 /* MapKit.framework */,
 				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
@@ -297,8 +297,11 @@
 		80BE0831169C10AA00AC4A8F /* GourmetPocket */ = {
 			isa = PBXGroup;
 			children = (
+				8064270716A657390031867A /* GourmetPocket.entitlements */,
 				806426F416A55F5B0031867A /* GeoloqiData.xcdatamodeld */,
 				808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */,
+				80BE083A169C10AA00AC4A8F /* AppDelegate.h */,
+				80BE083B169C10AA00AC4A8F /* AppDelegate.m */,
 				808C42E716A3F6C800B378F3 /* MainViewController.h */,
 				808C42E816A3F6C800B378F3 /* MainViewController.m */,
 				808C42ED16A3FE7000B378F3 /* QuickViewController.h */,
@@ -310,8 +313,6 @@
 				808C42F316A400E200B378F3 /* SettingTableViewController.h */,
 				808C42F416A400E200B378F3 /* SettingTableViewController.m */,
 				80BE0867169C1D9500AC4A8F /* LQConfig.h */,
-				80BE083A169C10AA00AC4A8F /* AppDelegate.h */,
-				80BE083B169C10AA00AC4A8F /* AppDelegate.m */,
 				8064270516A5654D0031867A /* CoreData ManagedObject subclass */,
 				8064270616A565810031867A /* old layouts */,
 				806426F716A564E70031867A /* JSONKit */,
@@ -454,7 +455,6 @@
 				80BE0838169C10AA00AC4A8F /* main.m in Sources */,
 				80BE083C169C10AA00AC4A8F /* AppDelegate.m in Sources */,
 				80BE0845169C10AA00AC4A8F /* ViewController.m in Sources */,
-				802CAE46169DC7F7008719F9 /* SampleCode.m in Sources */,
 				802CAE7D169ED5EC008719F9 /* LQActivityManager.m in Sources */,
 				802CAE7E169ED5EC008719F9 /* LQGeonoteManager.m in Sources */,
 				802CAE7F169ED5EC008719F9 /* LQLayerManager.m in Sources */,
@@ -520,8 +520,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
+				PROVISIONING_PROFILE = "9A111F68-4ACF-4993-BFB3-DDC1728D574C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A111F68-4ACF-4993-BFB3-DDC1728D574C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -546,8 +546,8 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "47862814-D701-4C7F-A22A-32FE21DA1165";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47862814-D701-4C7F-A22A-32FE21DA1165";
+				PROVISIONING_PROFILE = "9A111F68-4ACF-4993-BFB3-DDC1728D574C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A111F68-4ACF-4993-BFB3-DDC1728D574C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -556,6 +556,7 @@
 		80BE084C169C10AA00AC4A8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GourmetPocket/GourmetPocket.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GourmetPocket/GourmetPocket-Prefix.pch";
 				INFOPLIST_FILE = "GourmetPocket/GourmetPocket-Info.plist";
@@ -573,6 +574,7 @@
 		80BE084D169C10AA00AC4A8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GourmetPocket/GourmetPocket.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GourmetPocket/GourmetPocket-Prefix.pch";
 				INFOPLIST_FILE = "GourmetPocket/GourmetPocket-Info.plist";
