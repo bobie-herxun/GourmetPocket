@@ -9,15 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "LQLayerManager.h"
 
+@class AppDelegate;
 @class MainViewController;
 
 @interface GroupTableViewController : UITableViewController{
+    AppDelegate* gourmetPocketAppdelegate;
     LQLayerManager* m_geoloqiLayerManager;
+    NSMutableArray* m_layers;
     NSMutableArray* jsonResult;
 }
 
 @property (nonatomic, assign) MainViewController* mainVC;
 
 - (IBAction)groupBackToMain:(id)sender;
+
+- (void)fetchLayersFromDB;
 
 @end
