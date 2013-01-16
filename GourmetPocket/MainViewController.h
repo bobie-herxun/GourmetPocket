@@ -10,6 +10,11 @@
 
 @interface MainViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UILabel *textLabelMain;
+
 - (void)backToMain;
+
+- (IBAction)mainLogIn:(id)sender;
+- (IBAction)mainCreateNewUser:(id)sender;
 
 @end
