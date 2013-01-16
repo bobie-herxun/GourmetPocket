@@ -45,56 +45,56 @@
 //    self.window.rootViewController = navController;
 //    navController.title = @"GourmetPocket";
     
-//    [LQSession setAPIKey:LQ_APIKey];
-//    
-//    if ([LQSession savedSession])
-//    {
-//        // resume tracking in the previous state
-//        [LQTracker sharedTracker];
-//        // re-register for push-notificaton to tell the server that the user is still using the app
-//        [LQSession registerForPushNotificationsWithCallback:NULL];
-//    }
-//    else
-//    {
-//        [LQSession createAnonymousUserAccountWithUserInfo:nil completion:^(LQSession *session, NSError *error) {
-//            if(error) {
-//                NSLog(@"ERROR: Failed to create account: %@", error);
-//            } else {
-//                // Save the session to disk so it will be restored on next launch
-//                [LQSession setSavedSession:session];
-//                
-//                // Now register for push notifications
-//                // After the user approves, the app delegate method didRegisterForRemoteNotificationsWithDeviceToken will be called
-//                [LQSession registerForPushNotificationsWithCallback:^(NSData *deviceToken, NSError *error) {
-//                    if(error){
-//                        NSLog(@"Failed to register for push tokens: %@", error);
-//                    } else {
-//                        NSLog(@"Got a push token! %@", deviceToken);
-//                    }
-//                }];
-//                
-//                // Start tracking
-//                [[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
-//                
-//                // Note: You may not want to start tracking right here, and you may not want to register for push notifications now either.
-//                // You are better off putting off these until you absolutely need to, since they will show a popup prompt to the user.
-//                // It is somewhat annoying to see two prompts in a row before even getting a chance to use the app, so you should wait
-//                // until you need to show a map or until the user turns "on" some functionality before prompting for location access
-//                // and push notification permission.
-//            }
-//        }];
-//    }
+    [LQSession setAPIKey:LQ_APIKey];
     
-//    // You may wish to listen for the notification the SDK sends when a user has logged in successfully
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(authenticationDidSucceed:)
-//                                                 name:LQTrackerLocationChangedNotification
-//                                               object:nil];
-//    
-//    [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
+    if ([LQSession savedSession])
+    {
+        // resume tracking in the previous state
+        [LQTracker sharedTracker];
+        // re-register for push-notificaton to tell the server that the user is still using the app
+        [LQSession registerForPushNotificationsWithCallback:NULL];
+    }
+    else
+    {
+        [LQSession createAnonymousUserAccountWithUserInfo:nil completion:^(LQSession *session, NSError *error) {
+            if(error) {
+                NSLog(@"ERROR: Failed to create account: %@", error);
+            } else {
+                // Save the session to disk so it will be restored on next launch
+                [LQSession setSavedSession:session];
+                
+                // Now register for push notifications
+                // After the user approves, the app delegate method didRegisterForRemoteNotificationsWithDeviceToken will be called
+                [LQSession registerForPushNotificationsWithCallback:^(NSData *deviceToken, NSError *error) {
+                    if(error){
+                        NSLog(@"Failed to register for push tokens: %@", error);
+                    } else {
+                        NSLog(@"Got a push token! %@", deviceToken);
+                    }
+                }];
+                
+                // Start tracking
+                [[LQTracker sharedTracker] setProfile:LQTrackerProfileAdaptive];
+                
+                // Note: You may not want to start tracking right here, and you may not want to register for push notifications now either.
+                // You are better off putting off these until you absolutely need to, since they will show a popup prompt to the user.
+                // It is somewhat annoying to see two prompts in a row before even getting a chance to use the app, so you should wait
+                // until you need to show a map or until the user turns "on" some functionality before prompting for location access
+                // and push notification permission.
+            }
+        }];
+    }
+    
+    // You may wish to listen for the notification the SDK sends when a user has logged in successfully
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(authenticationDidSucceed:)
+                                                 name:LQTrackerLocationChangedNotification
+                                               object:nil];
+    
+    [LQSession application:application didFinishLaunchingWithOptions:launchOptions];
     
     self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    sleep(2);
+    //sleep(2);
     
 //    [self.window makeKeyAndVisible];
     return YES;
@@ -195,7 +195,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"EmptyAppWithCoreData" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"GeoloqiData" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -208,7 +208,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"EmptyAppWithCoreData.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"GeoloqiData.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -241,6 +241,29 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+#pragma mark - Additional methods for core-data
+// - (NSURL*)applicationDocumentsDirectory
+// - (void)saveContext
+- (NSURL*)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)saveContext
+{
+    NSError* error = nil;
+    
+    NSManagedObjectContext* managedObjectContext = [self managedObjectContext];
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+        abort();
+    }
 }
 
 @end
