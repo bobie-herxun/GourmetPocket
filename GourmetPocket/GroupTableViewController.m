@@ -8,6 +8,8 @@
 
 #import "GroupTableViewController.h"
 #import "MainViewController.h"
+#import "NewGroupViewController.h"
+#import "GeoloqiLayerManager.h"
 
 // For core-data managed-object control, need AppDelegate
 #import "AppDelegate.h"
@@ -27,6 +29,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        _isLoaded = NO;
     }
     return self;
 }
@@ -45,26 +48,71 @@
     
     if (!m_geoloqiLayerManager)
     {
-        m_geoloqiLayerManager = [[LQLayerManager alloc] init];
+        [GeoloqiLayerManager initialize];
+        m_geoloqiLayerManager = [GeoloqiLayerManager sharedManager];
+        
+        if (!m_geoloqiLayerManager)
+        {
+            NSLog(@"GourmetPocket Debug: GroupTableViewController viewDidLoad failed to init m_geoloqiLayerManager");
+        }
     }
-    
-//    dispatch_async(kBgQueue, ^{
-//        [self performSelectorOnMainThread:@selector(fetchData)
-//                               withObject:nil
-//                            waitUntilDone:YES];
-//    });
     
     // Initialize m_layers
     m_layers = [@[] mutableCopy];
     
-    //[self addGeoloqiLayerWithName:@"New Layer 20130116" AndDescription:@"testing with core data support" AndOthers:nil];
-    [self fetchLayersFromDB];
+    if (!_isLoaded)
+    {
+        [self showLoadingIndicator];
+        [self performSelector:@selector(fetchLayersFromDB) withObject:nil afterDelay:1.0f];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"segueIdNewGroup"]) {
+        NewGroupViewController* newGroupViewController = segue.destinationViewController;
+        newGroupViewController.parentGroupTableView = self;
+    }
+}
+
+- (void)backToGroup
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)createNewGroupWithDictionary:(NSDictionary*)dictNewGroup;
+{
+    NSLog(@"GroupTableViewController createNewGroupWithDictionary");
+    NSLog(@"name: %@, desc: %@", [dictNewGroup objectForKey:@"name"],
+                                [dictNewGroup objectForKey:@"description"]);
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - for "Loading" HUD
+- (void)showLoadingIndicator
+{
+    if (!loadingActivityIndicator)
+    {
+        loadingActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    
+    [loadingActivityIndicator startAnimating];
+    loadingActivityIndicator.hidesWhenStopped = YES;
+}
+
+- (void)afterLoading
+{
+    [loadingActivityIndicator stopAnimating];
+    [viewLoadingIndicator removeFromSuperview];
+    
+    _isLoaded = YES;
 }
 
 #pragma mark - LQLayerManager Utilizations
@@ -90,13 +138,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellGroups";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Note: [UITableView dequeueReusableCellWithIdentifier:forIndexPath:] is for iOS 6.0 and later
+    //       will cause previous OS versions crash
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    GeoloqiLayers* layer = [m_layers objectAtIndex:indexPath.section];
+    GeoloqiLayers* layer = [m_layers objectAtIndex:indexPath.row];
     
     cell.textLabel.text = layer.name;
     cell.detailTextLabel.text = layer.desc;
+    
+    id path = layer.icon;
+    NSURL *url = [NSURL URLWithString:path];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:data];
+    cell.imageView.image = img;
     
     return cell;
 }
@@ -108,7 +166,7 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+//*/
 
 /*
 // Override to support editing the table view.
@@ -154,12 +212,89 @@
      */
 }
 
+#pragma mark - PullRefreshTableViewController
+- (void)refresh
+{
+    [self performSelector:@selector(reloadLayersFromGeoloqiAPI) withObject:nil afterDelay:2.0];
+}
+
 #pragma mark - Methods
 
 - (IBAction)groupBackToMain:(id)sender {
     [self.mainVC backToMain];
 }
 
+- (IBAction)groupRefreshFromAPI:(id)sender {
+    [self reloadLayersFromGeoloqiAPI];
+}
+
+- (void)reloadLayersFromGeoloqiAPI
+{
+    if (!m_geoloqiLayerManager)
+    {
+        NSLog(@"GourmetPocket debug: reloadLayersFromGeoloqiAPI invalid GeoloqiLayerManager");
+        return;
+    }
+    
+    [m_geoloqiLayerManager reloadLayersFromAPI:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
+        // Callback code chunk
+        
+        // Geoloqi return data will be stored inside GeoloqiLayerManager and can be retrieved later
+        // Only have to handle error here
+        if (error)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            NSMutableArray* returnData = [[m_geoloqiLayerManager layers] mutableCopy];
+            if (![returnData count])
+            {
+                return;
+            }
+            else
+            {
+                [self clearDBLayers];
+                [self refreshDBLayers:returnData];
+                [self fetchLayersFromDB];
+            }
+        }
+    }];
+    
+    [self stopLoading];
+}
+
+- (void)clearDBLayers
+{
+    NSFetchRequest* requestFetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"GeoloqiLayers"
+                                              inManagedObjectContext:[gourmetPocketAppdelegate managedObjectContext]];
+    [requestFetch setEntity:entity];
+    NSError* error = nil;
+    NSMutableArray* returnObjs = [[[gourmetPocketAppdelegate managedObjectContext] executeFetchRequest:requestFetch error:&error] mutableCopy];
+    
+    [requestFetch release];
+    
+    // delete all object in entity "GeoloqiLayers"
+    for (GeoloqiLayers* currentLayer in returnObjs)
+    {
+        [[gourmetPocketAppdelegate managedObjectContext] deleteObject:currentLayer];
+    }
+    
+    [returnObjs release];
+    
+    if (![gourmetPocketAppdelegate.managedObjectContext save:&error]) {
+        NSLog(@"GourmetPocket, Group, Failed to clear GeoloqiLayers in CoreData");
+    }
+}
+
+// This is a develop-testing function
 - (void)addGeoloqiLayerWithName:(NSString*)name AndDescription:(NSString*)description AndOthers:(NSMutableArray*)otherInfo
 {
     GeoloqiLayers* geoloqiLayer =
@@ -174,17 +309,47 @@
     
     NSError* error = nil;
     if (![gourmetPocketAppdelegate.managedObjectContext save:&error]) {
-        NSLog(@"GourmetPocket, Group, Failed to add new layer into DB");
+        NSLog(@"GourmetPocket Debug, GroupTableViewController addGeoloqiLayerWithName, Failed to add new layer into DB");
     }
     
 }
 
+// Refresh layers in DB with GeoloqiAPI return data (if any)
+- (void)refreshDBLayers:(NSMutableArray*)layers
+{
+    if (![layers count])
+    {
+        return;
+    }
+
+    for (NSDictionary *item in layers)
+    {
+        GeoloqiLayers* geoloqiLayer =
+        (GeoloqiLayers*) [NSEntityDescription insertNewObjectForEntityForName:@"GeoloqiLayers"
+                                                       inManagedObjectContext:[gourmetPocketAppdelegate managedObjectContext]];
+
+        geoloqiLayer.layer_id = [item objectForKey:@"layer_id"];
+        geoloqiLayer.name = [item objectForKey:@"name"];
+        geoloqiLayer.desc = [item objectForKey:@"description"];
+        geoloqiLayer.icon = [item objectForKey:@"icon"];
+        geoloqiLayer.url = [item objectForKey:@"url"];
+        geoloqiLayer.subscribed = [item objectForKey:@"subscribed"];
+        
+        NSError* error = nil;
+        if (![gourmetPocketAppdelegate.managedObjectContext save:&error]) {
+            NSLog(@"GourmetPocket Debug, GroupTableViewController refreshDBLayers, Failed to add new layer into DB");
+            break;
+        }
+    }
+}
+
 - (void)fetchLayersFromDB
 {
-    for (NSMutableArray* currentSet in m_layers)
-    {
-        [currentSet removeAllObjects];
-    }
+//    for (NSMutableArray* currentSet in m_layers)
+//    {
+//        [currentSet removeAllObjects];
+//    }
+    [m_layers removeAllObjects];
     
     NSFetchRequest* requestFetch = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"GeoloqiLayers"
@@ -198,12 +363,27 @@
     // update table view
     for (GeoloqiLayers* currentLayer in returnObjs)
     {
+        NSLog(@"fetchLayersFromDB, name: %@ desc: %@", currentLayer.name, currentLayer.desc);
         [m_layers insertObject:currentLayer atIndex:0];
     }
     
     [returnObjs release];
     
     [self.tableView reloadData];
+    
+    [self afterLoading];
 }
 
+- (void)dealloc {
+    [loadingActivityIndicator release];
+    [viewLoadingIndicator release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [loadingActivityIndicator release];
+    loadingActivityIndicator = nil;
+    [viewLoadingIndicator release];
+    viewLoadingIndicator = nil;
+    [super viewDidUnload];
+}
 @end
