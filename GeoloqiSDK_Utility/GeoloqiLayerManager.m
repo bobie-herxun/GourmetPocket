@@ -21,6 +21,7 @@ static NSString *const kLQLayerSubscribePath = @"/layer/subscribe";
 static NSString *const kLQLayerUnsubscribePath = @"/layer/unsubscribe";
 static NSString *const kLQLayerNameDictionaryKey = @"name";
 static NSString *const kLQLayerIDKey = @"layer_id";
+static NSString *const kLQLayerNewLayerPath = @"/layer/create";
 
 #pragma mark -
 
@@ -101,6 +102,38 @@ static NSString *const kLQLayerIDKey = @"layer_id";
                     }
                     
                     if(completion) completion(response, responseDictionary, error);
+                }];
+}
+
+- (void)createNewLayer:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion
+        withDictionary:(NSDictionary*)dictNewLayer
+{
+    LQSession* session = [LQSession savedSession];
+    
+    NSURLRequest* request = [session requestWithMethod:@"POST"
+                                                  path:kLQLayerNewLayerPath
+                                               payload:dictNewLayer];
+    
+    [session runAPIRequest:request
+                completion:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
+                    
+                    if (error)
+                    {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                        message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        [alert release];
+                    }
+                    else
+                    {
+                        // Let view-controller trigger the refresh
+                    }
+                    
+                    if (completion)
+                        completion(response, responseDictionary, error);
                 }];
 }
 

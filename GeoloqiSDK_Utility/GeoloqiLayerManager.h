@@ -27,6 +27,11 @@
 //
 - (void)reloadLayersFromAPI:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion;
 
+// creates a new layer
+//
+- (void)createNewLayer:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion
+        withDictionary:(NSDictionary*)dictNewLayer;
+
 // subscribes or unsubscribes from the layer at the given index
 //
 - (void)manageSubscriptionForLayerAtIndex:(NSInteger)index subscribe:(BOOL)subscribe;
