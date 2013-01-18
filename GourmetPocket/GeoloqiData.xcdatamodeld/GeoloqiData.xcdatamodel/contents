@@ -6,15 +6,17 @@
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="layer_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="public" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="radius" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="subscribed" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="GeoloqiPlaces" representedClassName="GeoloqiPlaces" syncable="YES"/>
     <elements>
-        <element name="GeoloqiLayers" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="GeoloqiLayers" positionX="160" positionY="192" width="128" height="225"/>
         <element name="GeoloqiPlaces" positionX="160" positionY="192" width="128" height="45"/>
     </elements>
 </model>
