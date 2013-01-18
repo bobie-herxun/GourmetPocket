@@ -2,7 +2,7 @@
 //  GeoloqiLayers.m
 //  GourmetPocket
 //
-//  Created by Bobie on 1/15/13.
+//  Created by Bobie on 1/17/13.
 //  Copyright (c) 2013 Bobie. All rights reserved.
 //
 
@@ -11,15 +11,17 @@
 
 @implementation GeoloqiLayers
 
-@dynamic name;
 @dynamic desc;
-@dynamic key;
+@dynamic extra;
 @dynamic icon;
-@dynamic url;
+@dynamic key;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic radius;
+@dynamic name;
 @dynamic public;
-@dynamic extra;
+@dynamic radius;
+@dynamic url;
+@dynamic layer_id;
+@dynamic subscribed;
 
 @end
