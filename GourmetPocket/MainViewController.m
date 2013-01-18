@@ -11,7 +11,7 @@
 #import "LQSession.h"
 #import "LQTracker.h"
 
-static NSString *const constUsernameEmail = @"bobie@herxun.co";
+static NSString *const constUsernameEmail = @"ahchic@hotmail.com"; //@"bobie@herxun.co";
 static NSString *const constPassword = @"ahchie77";
 static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 
@@ -34,6 +34,7 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    //[self showLoadingIndicator];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +42,26 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - for "Loading" HUD
+- (void)showLoadingIndicator
+{
+    if (!activityIndicator)
+    {
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    
+    [activityIndicator startAnimating];
+    activityIndicator.hidesWhenStopped = YES;
+    [self performSelector:@selector(afterLoading) withObject:nil afterDelay:4.0f];
+}
+
+- (void)afterLoading
+{
+    [activityIndicator stopAnimating];
+}
+//*/
 
 #pragma mark - methods of MainViewController
 
@@ -99,8 +120,10 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 }
 
 - (IBAction)mainCreateNewUser:(id)sender {
+    
+    NSLog(@"Should do nothing");
     /*
-    [LQSession createAccountWithUsername:constUsernameEmail
+    [LQSession createAccountWithUsername:constNewUsernameEmail
                                 password:constPassword
                                    extra:nil
                               completion:^(LQSession *session, NSError *error)
@@ -132,7 +155,7 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
                                                      objectForKey:@"error_description"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
             }
         }];
-    */
+     */
 }
 
 - (void)registerPushAfterSuccessfulLogIn
