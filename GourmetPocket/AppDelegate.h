@@ -25,6 +25,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 #pragma mark - Geoloqi AppDelegate methods
++ (void)registerForPushNotificationsIfNotYetRegistered;
 + (NSString *)cacheDatabasePathForCategory:(NSString *)category;
 + (void)deleteFromTable:(NSString *)collectionName forCategory:(NSString *)category;
 

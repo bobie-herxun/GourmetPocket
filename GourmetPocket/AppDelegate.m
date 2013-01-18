@@ -266,4 +266,19 @@
     }
 }
 
+#pragma mark - 
++ (void)registerForPushNotificationsIfNotYetRegistered {
+	if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hasRegisteredForPushNotifications"]){
+        [LQSession registerForPushNotificationsWithCallback:^(NSData *deviceToken, NSError *error) {
+            if(error){
+                NSLog(@"Failed to register for push tokens: %@", error);
+            } else {
+                NSLog(@"Got a push token! %@", deviceToken);
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasRegisteredForPushNotifications"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+        }];
+	}
+}
+
 @end
