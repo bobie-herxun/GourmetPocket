@@ -92,7 +92,34 @@
     NSLog(@"name: %@, desc: %@", [dictNewGroup objectForKey:@"name"],
                                 [dictNewGroup objectForKey:@"description"]);
     
-    [self dismissModalViewControllerAnimated:YES];
+    if (!m_geoloqiLayerManager)
+    {
+        NSLog(@"GourmetPocket debug: reloadLayersFromGeoloqiAPI invalid GeoloqiLayerManager");
+        return;
+    }
+    
+    [m_geoloqiLayerManager createNewLayer:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
+
+        // Callback code chunk
+        
+        // Geoloqi return data will be stored inside GeoloqiLayerManager and can be retrieved later
+        // Only have to handle error here
+        if (error)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            [self reloadLayersFromGeoloqiAPI];
+            [self dismissModalViewControllerAnimated:YES];
+        }
+    } withDictionary:dictNewGroup];
 }
 
 #pragma mark - for "Loading" HUD
