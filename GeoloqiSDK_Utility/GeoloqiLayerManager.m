@@ -80,13 +80,7 @@ static NSString *const kLQLayerNewLayerPath = @"/layer/create";
                 completion:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
                     
                     if (error) {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        [alert release];
+                        NSLog(@"GeoloqiLayerManager: fail to reload layers");
                     } else {
                         
                         NSMutableArray *_layers = [[NSMutableArray alloc] init];
@@ -119,13 +113,7 @@ static NSString *const kLQLayerNewLayerPath = @"/layer/create";
                     
                     if (error)
                     {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        [alert release];
+                        NSLog(@"GeoloqiPlaceManager: failed to create new layer");
                     }
                     else
                     {
