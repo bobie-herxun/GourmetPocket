@@ -9,6 +9,7 @@
 #import "GroupTableViewController.h"
 #import "MainViewController.h"
 #import "NewGroupViewController.h"
+#import "PlaceTableViewController.h"
 #import "GeoloqiLayerManager.h"
 
 // For core-data managed-object control, need AppDelegate
@@ -78,6 +79,15 @@
     if ([segue.identifier isEqualToString:@"segueIdNewGroup"]) {
         NewGroupViewController* newGroupViewController = segue.destinationViewController;
         newGroupViewController.parentGroupTableView = self;
+    }
+    else if ([segue.identifier isEqualToString:@"segueIdGroupsToPlaces"])
+    {
+        PlaceTableViewController* placeTableViewController = segue.destinationViewController;
+        placeTableViewController.parentGroupTableView = self;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        GeoloqiLayers* currentLayer = [m_layers objectAtIndex:indexPath.row];
+        placeTableViewController.parentLayerId = currentLayer.layer_id;
+        NSLog(@"Select layer id: %@", placeTableViewController.parentLayerId);
     }
 }
 
@@ -172,18 +182,32 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    GeoloqiLayers* layer = [m_layers objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = layer.name;
-    cell.detailTextLabel.text = layer.desc;
-    
-    id path = layer.icon;
-    NSURL *url = [NSURL URLWithString:path];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
-    cell.imageView.image = img;
+    if ([m_layers count] > 0)
+    {
+        GeoloqiLayers* layer = [m_layers objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = layer.name;
+        cell.detailTextLabel.text = layer.desc;
+        
+        id path = layer.icon;
+        NSURL *url = [NSURL URLWithString:path];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [[UIImage alloc] initWithData:data];
+        cell.imageView.image = img;
+    }
+    else
+    {
+        //cell.textLabel.text = @"Loading...";
+        //[cell.accessoryView setHidden:YES];
+    }
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [m_layers count]-1)
+        [self afterLoading];
 }
 
 /*
@@ -372,10 +396,6 @@
 
 - (void)fetchLayersFromDB
 {
-//    for (NSMutableArray* currentSet in m_layers)
-//    {
-//        [currentSet removeAllObjects];
-//    }
     [m_layers removeAllObjects];
     
     NSFetchRequest* requestFetch = [[NSFetchRequest alloc] init];
@@ -397,8 +417,6 @@
     [returnObjs release];
     
     [self.tableView reloadData];
-    
-    [self afterLoading];
 }
 
 - (void)dealloc {
