@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GeoloqiPlaceManager.h"
+
+@class GroupTableViewController;
 
 @interface PlaceTableViewController : UITableViewController {
-    NSString* m_parentLayerId;
+    GeoloqiPlaceManager* m_geoloqiPlaceManager;
+    NSMutableArray* m_places;
 }
+
+@property (nonatomic, assign) GroupTableViewController* parentGroupTableView;
+@property (nonatomic, assign) NSString* parentLayerId;
 
 @end

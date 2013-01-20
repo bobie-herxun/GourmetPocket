@@ -7,6 +7,7 @@
 //
 
 #import "PlaceTableViewController.h"
+#import "GeoloqiPlaceManager.h"
 
 @interface PlaceTableViewController ()
 
@@ -32,6 +33,22 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    if (!m_geoloqiPlaceManager)
+    {
+        [GeoloqiPlaceManager initialize];
+        m_geoloqiPlaceManager = [GeoloqiPlaceManager sharedManager];
+        
+        if (!m_geoloqiPlaceManager)
+        {
+            NSLog(@"GourmetPocket Debug: PlaceTableViewController viewDidLoad failed to init m_geoloqiPlaceManager");
+        }
+    }
+    
+    // Initialize m_layers
+    m_places = [@[] mutableCopy];
+    
+    [self performSelector:@selector(reloadPlacesFromGeoloqiAPI) withObject:nil afterDelay:1.0f];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +61,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [m_places count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    NSDictionary* dictPlace = [m_places objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [dictPlace objectForKey:@"name"];
+    cell.detailTextLabel.text = [dictPlace objectForKey:@"geocode"];
     
     return cell;
 }
@@ -117,6 +136,65 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+#pragma mark - Methods
+
+- (void)reloadPlacesFromGeoloqiAPI
+{
+    if (!m_geoloqiPlaceManager)
+    {
+        NSLog(@"GourmetPocket debug: reloadPlacesFromGeoloqiAPI invalid GeoloqiPlaceManager");
+        return;
+    }
+    
+    NSString* layer_id = _parentLayerId;
+    
+    [m_geoloqiPlaceManager reloadPlacesFromAPI:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error){
+        // Callback code chunk
+        
+        // Geoloqi return data will be stored inside GeoloqiPlaceManager and can be retrieved later
+        // Only have to handle error here
+        if (error)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            NSMutableArray* returnData = [[m_geoloqiPlaceManager places] mutableCopy];
+            if (![returnData count])
+            {
+                return;
+            }
+            else
+            {
+                //[self clearDBLayers];
+                [self refreshPlaces:returnData];
+                //[self fetchLayersFromDB];
+                
+                [self.tableView reloadData];
+            }
+        }
+    }withLayerId:layer_id];
+}
+
+- (void)refreshPlaces:(NSMutableArray*)places
+{
+    if (![places count])
+    {
+        return;
+    }
+    
+    for (NSDictionary *item in places)
+    {
+        m_places = places;
+    }
 }
 
 @end
