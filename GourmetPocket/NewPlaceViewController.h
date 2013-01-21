@@ -22,9 +22,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *textName;
 @property (retain, nonatomic) IBOutlet UITextField *textAddress;
 @property (retain, nonatomic) IBOutlet UITextField *textDescription;
-@property (retain, nonatomic) IBOutlet MKMapView *mapLocation;
 @property (retain, nonatomic) IBOutlet UILabel *textLatLong;
-@property (retain, nonatomic) IBOutlet UIDatePicker *pickerDailyTime;
 
 // IBActions
 //
@@ -33,5 +31,6 @@
 
 // Methods
 //
+- (void)donePickingLocation:(CLLocationCoordinate2D)coordinate;
 
 @end
