@@ -7,6 +7,7 @@
 //
 
 #import "PlaceTableViewController.h"
+#import "NewPlaceViewController.h"
 #import "GeoloqiPlaceManager.h"
 
 @interface PlaceTableViewController ()
@@ -55,6 +56,33 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"segueIdNewPlace"])
+    {
+        NewPlaceViewController* newPlaceViewController = segue.destinationViewController;
+        newPlaceViewController.parentPlaceTableViewController = self;
+    }
+}
+
+- (void)cancelNewPlace
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)createNewPlaceWithDictionary:(NSDictionary*)dictNewPlace
+{
+    NSLog(@"PlaceTableViewController createNewPlaceWithDictionary");
+    NSLog(@"name: %@", [dictNewPlace valueForKey:@"name"]);
+    NSLog(@"description: %@", [dictNewPlace valueForKey:@"description"]);
+    NSLog(@"geocode: %@", [dictNewPlace valueForKey:@"geocode"]);
+    NSLog(@"Latitude: %@, Longitude: %@", [[dictNewPlace objectForKey:@"latLong"] valueForKey:@"latitude"],
+                                            [[dictNewPlace objectForKey:@"latLong"] valueForKey:@"longitude"]);
+    NSLog(@"daily trigger time: %@", [dictNewPlace valueForKey:@"dailyTriggerTime"]);
+    
+    // Remember to add layer_id
 }
 
 #pragma mark - Table view data source

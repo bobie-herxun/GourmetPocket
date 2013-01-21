@@ -16,6 +16,9 @@
     NSMutableArray* m_places;
 }
 
+- (void)cancelNewPlace;
+- (void)createNewPlaceWithDictionary:(NSDictionary*)dictNewPlace;
+
 @property (nonatomic, assign) GroupTableViewController* parentGroupTableView;
 @property (nonatomic, assign) NSString* parentLayerId;
 
