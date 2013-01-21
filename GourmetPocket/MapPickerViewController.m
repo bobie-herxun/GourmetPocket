@@ -7,6 +7,9 @@
 //
 
 #import "MapPickerViewController.h"
+#import "NewPlaceViewController.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @interface MapPickerViewController ()
 
@@ -27,6 +30,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.mapLocation.delegate = self;
+    
+    // Add long-press gesture
+    UILongPressGestureRecognizer* longPressMap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPressMap.minimumPressDuration = 2.0f;
+    [self.mapLocation addGestureRecognizer:longPressMap];
+    [longPressMap release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +46,96 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Methods
+- (void)handleLongPress:(UIGestureRecognizer*)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    [self.mapLocation removeAnnotation:m_annotatePoint];
+
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapLocation];
+    CLLocationCoordinate2D touchMapCoordinate =
+    [self.mapLocation convertPoint:touchPoint toCoordinateFromView:self.mapLocation];
+
+    m_annotatePoint = [[MKPointAnnotation alloc] init];
+    m_annotatePoint.coordinate = touchMapCoordinate;
+    m_annotatePoint.title = @"Location";
+    m_annotatePoint.subtitle = @"Place Description";
+
+    [self.mapLocation addAnnotation:m_annotatePoint];
+}
+
+#pragma mark - MapView Delegates
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion regionCenter = MKCoordinateRegionMake(mapView.userLocation.coordinate,
+                                                             MKCoordinateSpanMake(0.005, 0.005));
+    regionCenter = [mapView regionThatFits:regionCenter];
+    [mapView setRegion:regionCenter animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    static NSString *reuseId = @"pin";
+    MKPinAnnotationView *pav = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
+    if (pav == nil)
+    {
+        pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
+        pav.draggable = YES;
+        pav.canShowCallout = YES;
+    }
+    else
+    {
+        pav.draggable = YES;
+        pav.annotation = annotation;
+    }
+    
+    return pav;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    m_annotatePoint.subtitle = @"Getting address...";
+    
+    CLGeocoder* geocoder = [[CLGeocoder alloc] init];
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:view.annotation.coordinate.latitude
+                                                      longitude:view.annotation.coordinate.longitude];
+    [geocoder reverseGeocodeLocation:location
+                   completionHandler:^(NSArray *placemarks, NSError *error)
+        {
+            // Completion callback
+            if (error)
+            {
+                NSLog(@"Fail to reverse-geocode the coordinate");
+                return;
+            }
+            
+            CLPlacemark* placeMark = [placemarks objectAtIndex:0];
+            NSString* addressString = ABCreateStringWithAddressDictionary(placeMark.addressDictionary, NO);
+            
+            m_annotatePoint.subtitle = addressString;
+        }];
+}
+
+#pragma mark - IBActions
+- (IBAction)donePicking:(id)sender {
+    [self.parentNewPlaceViewController donePickingLocation:m_annotatePoint.coordinate];
+}
+
+- (IBAction)locateMe:(id)sender {
+}
+
+#pragma mark - Destructors
+- (void)dealloc {
+    [_mapLocation release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setMapLocation:nil];
+    [super viewDidUnload];
+}
 @end

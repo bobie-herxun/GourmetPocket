@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface MapPickerViewController : UIViewController
+@class NewPlaceViewController;
+
+@interface MapPickerViewController : UIViewController <MKMapViewDelegate> {
+    MKPointAnnotation *m_annotatePoint;
+}
+
+// Properties
+//
+@property (nonatomic, assign) NewPlaceViewController* parentNewPlaceViewController;
+
+
+// IBOutlets
+//
+@property (retain, nonatomic) IBOutlet MKMapView *mapLocation;
+
+
+// IBActions
+//
+- (IBAction)donePicking:(id)sender;
+- (IBAction)locateMe:(id)sender;
 
 @end
