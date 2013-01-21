@@ -50,6 +50,7 @@
 		80922AA116A7FDD500F8DDE7 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 80922AA016A7FDD500F8DDE7 /* arrow.png */; };
 		80922AA416A7FE9A00F8DDE7 /* PlaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */; };
 		80922AA716A9234B00F8DDE7 /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */; };
+		80922AAE16ACF90100F8DDE7 /* NewPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -139,6 +140,8 @@
 		80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewController.m; sourceTree = "<group>"; };
 		80922AA516A9234A00F8DDE7 /* NewGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroupViewController.h; sourceTree = "<group>"; };
 		80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
+		80922AAC16ACF90000F8DDE7 /* NewPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlaceViewController.h; sourceTree = "<group>"; };
+		80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlaceViewController.m; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -343,6 +346,8 @@
 				80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */,
 				80922AA216A7FE9900F8DDE7 /* PlaceTableViewController.h */,
 				80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */,
+				80922AAC16ACF90000F8DDE7 /* NewPlaceViewController.h */,
+				80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */,
 				808C42F616A404A100B378F3 /* ThirdPartyViewController.h */,
 				808C42F716A404A100B378F3 /* ThirdPartyViewController.m */,
 				808C42F316A400E200B378F3 /* SettingTableViewController.h */,
@@ -512,6 +517,7 @@
 				80922AA416A7FE9A00F8DDE7 /* PlaceTableViewController.m in Sources */,
 				80922AA716A9234B00F8DDE7 /* NewGroupViewController.m in Sources */,
 				2C9922FA16AA841700474148 /* GeoloqiPlaceManager.m in Sources */,
+				80922AAE16ACF90100F8DDE7 /* NewPlaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
