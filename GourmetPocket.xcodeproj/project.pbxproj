@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */; };
 		2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */; };
+		2C49683F16AD6DF900431AB2 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C49683E16AD6DF900431AB2 /* 74-location.png */; };
+		2C49684216AD6E5000431AB2 /* MapPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C49684116AD6E5000431AB2 /* MapPickerViewController.m */; };
+		2C4EC30E16ADA36B008D12DF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC30D16ADA36B008D12DF /* AddressBook.framework */; };
+		2C4EC31116ADA3C6008D12DF /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */; };
 		2C9922FA16AA841700474148 /* GeoloqiPlaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9922F916AA841700474148 /* GeoloqiPlaceManager.m */; };
 		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
 		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
@@ -79,6 +83,11 @@
 		2C014BE2169F066C00D07196 /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOLDatabase.h; path = GeoloqiSDK_Utility/LOLDatabase.h; sourceTree = "<group>"; };
 		2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2C49683E16AD6DF900431AB2 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "74-location.png"; path = "../../Desktop/NTU iOS Development Course/glyphish-icons/PNG icons/74-location.png"; sourceTree = "<group>"; };
+		2C49684016AD6E5000431AB2 /* MapPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPickerViewController.h; sourceTree = "<group>"; };
+		2C49684116AD6E5000431AB2 /* MapPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPickerViewController.m; sourceTree = "<group>"; };
+		2C4EC30D16ADA36B008D12DF /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		2C9922F816AA841700474148 /* GeoloqiPlaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoloqiPlaceManager.h; sourceTree = "<group>"; };
 		2C9922F916AA841700474148 /* GeoloqiPlaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoloqiPlaceManager.m; sourceTree = "<group>"; };
 		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
@@ -179,6 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4EC31116ADA3C6008D12DF /* AddressBookUI.framework in Frameworks */,
+				2C4EC30E16ADA36B008D12DF /* AddressBook.framework in Frameworks */,
 				80922A7F16A6B2B000F8DDE7 /* QuartzCore.framework in Frameworks */,
 				806426C116A55C600031867A /* CoreData.framework in Frameworks */,
 				80BE087D169C22D700AC4A8F /* CoreLocation.framework in Frameworks */,
@@ -289,6 +300,8 @@
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
+				2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */,
+				2C4EC30D16ADA36B008D12DF /* AddressBook.framework */,
 				80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */,
 				806426C016A55C600031867A /* CoreData.framework */,
 				802CAE96169FD8ED008719F9 /* MapKit.framework */,
@@ -348,6 +361,8 @@
 				80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */,
 				80922AAC16ACF90000F8DDE7 /* NewPlaceViewController.h */,
 				80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */,
+				2C49684016AD6E5000431AB2 /* MapPickerViewController.h */,
+				2C49684116AD6E5000431AB2 /* MapPickerViewController.m */,
 				808C42F616A404A100B378F3 /* ThirdPartyViewController.h */,
 				808C42F716A404A100B378F3 /* ThirdPartyViewController.m */,
 				808C42F316A400E200B378F3 /* SettingTableViewController.h */,
@@ -379,6 +394,7 @@
 		80BE084E169C13A200AC4A8F /* icons and image */ = {
 			isa = PBXGroup;
 			children = (
+				2C49683E16AD6DF900431AB2 /* 74-location.png */,
 				804957B916A54B3400C4CA3C /* mainPage_myGroups.png */,
 				804957BA16A54B3400C4CA3C /* mainPage_personalSettings.png */,
 				804957BB16A54B3400C4CA3C /* mainPage_pttFood.png */,
@@ -484,6 +500,7 @@
 				806426FC16A564E70031867A /* CHANGELOG.md in Resources */,
 				806426FE16A564E70031867A /* README.md in Resources */,
 				80922AA116A7FDD500F8DDE7 /* arrow.png in Resources */,
+				2C49683F16AD6DF900431AB2 /* 74-location.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +535,7 @@
 				80922AA716A9234B00F8DDE7 /* NewGroupViewController.m in Sources */,
 				2C9922FA16AA841700474148 /* GeoloqiPlaceManager.m in Sources */,
 				80922AAE16ACF90100F8DDE7 /* NewPlaceViewController.m in Sources */,
+				2C49684216AD6E5000431AB2 /* MapPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
