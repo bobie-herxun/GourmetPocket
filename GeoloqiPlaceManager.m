@@ -85,18 +85,27 @@ static NSString *const kLQLayerIDKey = @"layer_id";
                         
                         NSMutableArray *_places = [[NSMutableArray alloc] init];
                         
-//                        for (NSString *key in responseDictionary) {
-//                            for (NSDictionary *item in [responseDictionary objectForKey:key]) {
-//                                [_places addObject:item];
-//                            }
-//                        }
-                        for (NSDictionary* item in responseDictionary)
+                        // Check response paging first
+                        NSDictionary* dictPaging;
+                        if (![responseDictionary objectForKey:@"paging"])
                         {
-                            [_places addObject:item];
+                            NSLog(@"GeoloqiPlaceManager, place/list response should contain paging info");
                         }
-                        
-                        m_places = _places;
-                        m_isSorted = NO;
+
+                        dictPaging = [responseDictionary objectForKey:@"paging"];
+                        NSNumber* numPlace = [dictPaging valueForKey:@"total"];
+                        if (numPlace > 0)
+                        {
+                            NSLog(@"");
+                            NSDictionary* dictPlace = [responseDictionary objectForKey:@"place"];
+                            for (NSDictionary* item in dictPlace)
+                            {
+                                [_places addObject:item];
+                            }
+                            
+                            m_places = _places;
+                            m_isSorted = NO;
+                        }
                     }
                     
                     if(completion) completion(response, responseDictionary, error);
