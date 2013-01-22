@@ -13,6 +13,7 @@
 
 @interface MapPickerViewController : UIViewController <MKMapViewDelegate> {
     MKPointAnnotation *m_annotatePoint;
+    BOOL m_bUserLocationLoaded;
 }
 
 // Properties

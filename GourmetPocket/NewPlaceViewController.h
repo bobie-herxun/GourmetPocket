@@ -15,6 +15,8 @@
 
 // Class properties
 @property (nonatomic, assign) PlaceTableViewController* parentPlaceTableViewController;
+@property (nonatomic, retain) NSString* placeLatitude;
+@property (nonatomic, retain) NSString* placeLongitude;
 
 // IBOutlets
 //
@@ -31,6 +33,6 @@
 
 // Methods
 //
-- (void)donePickingLocation:(CLLocationCoordinate2D)coordinate;
+- (void)donePickingLocation:(CLLocationCoordinate2D)coordinate withGeocode:(NSString*)strGeocode;
 
 @end

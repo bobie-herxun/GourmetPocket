@@ -23,6 +23,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.placeLatitude = @"";
+        self.placeLongitude = @"";
     }
     return self;
 }
@@ -31,9 +33,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self.scrollNewPlace setScrollEnabled:YES];
-    [self.scrollNewPlace setContentSize:CGSizeMake(320, 1080)];
     
     self.textName.delegate = self;
     self.textAddress.delegate = self;
@@ -49,7 +48,7 @@
     }
 }
 
-- (void)donePickingLocation:(CLLocationCoordinate2D)coordinate
+- (void)donePickingLocation:(CLLocationCoordinate2D)coordinate withGeocode:(NSString*)strGeocode
 {
     [self dismissModalViewControllerAnimated:YES];
     
@@ -57,7 +56,14 @@
     NSLog(@"latitude: %f", coordinate.latitude);
     NSLog(@"longitude: %f", coordinate.longitude);
     
+    // Remember to check if strGeocode is valid string
+    if (!strGeocode)
+        strGeocode = @"";
+    
     self.textLatLong.text = [NSString stringWithFormat:@"Lat:%3.4f, Long:%3.4f", coordinate.latitude, coordinate.longitude];
+    self.textAddress.text = strGeocode;
+    self.placeLatitude = [NSString stringWithFormat:@"%f", coordinate.latitude];
+    self.placeLongitude = [NSString stringWithFormat:@"%f", coordinate.longitude];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,8 +96,8 @@
     //
     //CLLocation;
     
-    NSArray* arrayPlaceValue = @[ _textName.text, _textAddress, _textDescription ];
-    NSArray* arrayPlaceKey = @[ @"name", @"geocode", @"description" ];
+    NSArray* arrayPlaceValue = @[ _textName.text, _textAddress.text, _textDescription.text, self.placeLatitude, self.placeLongitude ];
+    NSArray* arrayPlaceKey = @[ @"name", @"geocode", @"description", @"latitude", @"longitude" ];
     NSDictionary* dictNewPlace = [NSDictionary dictionaryWithObjects:arrayPlaceValue forKeys:arrayPlaceKey];
     
     [self.parentPlaceTableViewController createNewPlaceWithDictionary:dictNewPlace];

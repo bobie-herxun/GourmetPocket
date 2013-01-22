@@ -21,6 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        m_bLoaded = NO;
     }
     return self;
 }
@@ -74,15 +75,72 @@
 
 - (void)createNewPlaceWithDictionary:(NSDictionary*)dictNewPlace
 {
+    [self dismissModalViewControllerAnimated:YES];
+    
     NSLog(@"PlaceTableViewController createNewPlaceWithDictionary");
     NSLog(@"name: %@", [dictNewPlace valueForKey:@"name"]);
     NSLog(@"description: %@", [dictNewPlace valueForKey:@"description"]);
     NSLog(@"geocode: %@", [dictNewPlace valueForKey:@"geocode"]);
-    NSLog(@"Latitude: %@, Longitude: %@", [[dictNewPlace objectForKey:@"latLong"] valueForKey:@"latitude"],
-                                            [[dictNewPlace objectForKey:@"latLong"] valueForKey:@"longitude"]);
+    NSLog(@"Latitude: %@, Longitude: %@", [dictNewPlace valueForKey:@"latitude"],
+                                          [dictNewPlace valueForKey:@"longitude"]);
     NSLog(@"daily trigger time: %@", [dictNewPlace valueForKey:@"dailyTriggerTime"]);
     
-    // Remember to add layer_id
+    NSMutableDictionary* mutableDictNewPlace = [dictNewPlace mutableCopy];
+    [mutableDictNewPlace setObject:[NSString stringWithFormat:@"%@", self.parentLayerId] forKey:@"layer_id"];
+    [mutableDictNewPlace setObject:@"1000" forKey:@"radius"];
+    [mutableDictNewPlace setObject:@"11:00:00" forKey:@"time_from"];
+    [mutableDictNewPlace setObject:@"13:00:00" forKey:@"time_to"];
+
+    if (!m_geoloqiPlaceManager)
+    {
+        NSLog(@"GourmetPocket debug: createNewPlaceWithDictionary invalid GeoloqiPlaceManager");
+        return;
+    }
+    
+    //m_bLoaded = NO;
+    //[self showLoadingIndicator];
+    
+    [m_geoloqiPlaceManager createNewPlace:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error){
+        // Callback code chunk
+        
+        // Geoloqi return data will be stored inside GeoloqiPlaceManager and can be retrieved later
+        // Only have to handle error here
+        if (error)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        else
+        {
+            [self reloadPlacesFromGeoloqiAPI];
+        }
+        
+    }withDictionary:mutableDictNewPlace];
+}
+
+#pragma mark - for "Loading" HUD
+- (void)showLoadingIndicator
+{
+    if (!activityIndicator)
+    {
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    
+    viewActivityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+    activityIndicator.hidesWhenStopped = YES;
+}
+
+- (void)afterLoading
+{
+    m_bLoaded = YES;
+    [activityIndicator stopAnimating];
+    viewActivityIndicator.hidden = YES;
 }
 
 #pragma mark - Table view data source
@@ -96,19 +154,35 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [m_places count];
+    if ([m_places count] > 0)
+        return [m_places count];
+    else if (!m_bLoaded)
+        return 0;
+    else
+        return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
-    NSDictionary* dictPlace = [m_places objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [dictPlace objectForKey:@"name"];
-    cell.detailTextLabel.text = [dictPlace objectForKey:@"geocode"];
+    UITableViewCell *cell;
+    if ([m_places count] > 0)
+    {
+        static NSString *CellIdentifier = @"Cell";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        // Configure the cell...
+        NSDictionary* dictPlace = [m_places objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [dictPlace objectForKey:@"name"];
+        cell.detailTextLabel.text = [dictPlace objectForKey:@"geocode"];
+    }
+    else if (![m_places count])
+    {
+        static NSString *CellIdentifier = @"cellIdCreateNewPlace";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!m_bLoaded)
+            cell.hidden = YES;
+    }
     
     return cell;
 }
@@ -176,6 +250,9 @@
         return;
     }
     
+    m_bLoaded = NO;
+    [self showLoadingIndicator];
+    
     NSString* layer_id = _parentLayerId;
     
     [m_geoloqiPlaceManager reloadPlacesFromAPI:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error){
@@ -196,18 +273,9 @@
         else
         {
             NSMutableArray* returnData = [[m_geoloqiPlaceManager places] mutableCopy];
-            if (![returnData count])
-            {
-                return;
-            }
-            else
-            {
-                //[self clearDBLayers];
-                [self refreshPlaces:returnData];
-                //[self fetchLayersFromDB];
-                
-                [self.tableView reloadData];
-            }
+            [self refreshPlaces:returnData];
+            [self afterLoading];
+            [self.tableView reloadData];
         }
     }withLayerId:layer_id];
 }
@@ -225,4 +293,16 @@
     }
 }
 
+- (void)dealloc {
+    [activityIndicator release];
+    [viewActivityIndicator release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [activityIndicator release];
+    activityIndicator = nil;
+    [viewActivityIndicator release];
+    viewActivityIndicator = nil;
+    [super viewDidUnload];
+}
 @end

@@ -18,7 +18,6 @@ static GeoloqiPlaceManager* m_placeManager;
 static NSString *const kLQPlaceListPath = @"/place/list";
 static NSString *const kLQPlaceNameDictionaryKey = @"name";
 static NSString *const kLQPlaceNewPlacePath = @"/place/create";
-static NSString *const kLQLayerIDKey = @"layer_id";
 
 #pragma mark -
 
@@ -94,7 +93,7 @@ static NSString *const kLQLayerIDKey = @"layer_id";
 
                         dictPaging = [responseDictionary objectForKey:@"paging"];
                         NSNumber* numPlace = [dictPaging valueForKey:@"total"];
-                        if (numPlace > 0)
+                        if ([numPlace intValue] > 0)
                         {
                             NSLog(@"");
                             NSDictionary* dictPlace = [responseDictionary objectForKey:@"place"];
@@ -113,26 +112,20 @@ static NSString *const kLQLayerIDKey = @"layer_id";
 }
 
 - (void)createNewPlace:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion
-        withDictionary:(NSDictionary*)dictNewLayer
+        withDictionary:(NSMutableDictionary*)mutableDictNewLayer
 {
     LQSession* session = [LQSession savedSession];
     
     NSURLRequest* request = [session requestWithMethod:@"POST"
                                                   path:kLQPlaceNewPlacePath
-                                               payload:dictNewLayer];
+                                               payload:mutableDictNewLayer];
     
     [session runAPIRequest:request
                 completion:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error) {
                     
                     if (error)
                     {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:[[error userInfo] objectForKey:NSLocalizedDescriptionKey]
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        [alert release];
+                        NSLog(@"GeoloqiPlaceManager: fail to reload places");
                     }
                     else
                     {

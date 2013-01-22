@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        m_bUserLocationLoaded = NO;
     }
     return self;
 }
@@ -69,10 +70,18 @@
 #pragma mark - MapView Delegates
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    if (!m_bUserLocationLoaded)
+        [self locateUserCenter:mapView];
+}
+
+- (void)locateUserCenter:(MKMapView*)mapView
+{
     MKCoordinateRegion regionCenter = MKCoordinateRegionMake(mapView.userLocation.coordinate,
                                                              MKCoordinateSpanMake(0.005, 0.005));
     regionCenter = [mapView regionThatFits:regionCenter];
     [mapView setRegion:regionCenter animated:YES];
+    
+    m_bUserLocationLoaded = YES;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -123,10 +132,11 @@
 
 #pragma mark - IBActions
 - (IBAction)donePicking:(id)sender {
-    [self.parentNewPlaceViewController donePickingLocation:m_annotatePoint.coordinate];
+    [self.parentNewPlaceViewController donePickingLocation:m_annotatePoint.coordinate withGeocode:m_annotatePoint.subtitle];
 }
 
-- (IBAction)locateMe:(id)sender {
+- (IBAction)locateMe:(id)sender{
+    [self locateUserCenter:self.mapLocation];
 }
 
 #pragma mark - Destructors

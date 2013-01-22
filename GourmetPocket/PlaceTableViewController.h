@@ -14,6 +14,10 @@
 @interface PlaceTableViewController : UITableViewController {
     GeoloqiPlaceManager* m_geoloqiPlaceManager;
     NSMutableArray* m_places;
+    
+    BOOL m_bLoaded;
+    IBOutlet UIView *viewActivityIndicator;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
 }
 
 - (void)cancelNewPlace;
