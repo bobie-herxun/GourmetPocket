@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */; };
 		2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */; };
-		2C49683F16AD6DF900431AB2 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C49683E16AD6DF900431AB2 /* 74-location.png */; };
 		2C49684216AD6E5000431AB2 /* MapPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C49684116AD6E5000431AB2 /* MapPickerViewController.m */; };
 		2C4EC30E16ADA36B008D12DF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC30D16ADA36B008D12DF /* AddressBook.framework */; };
 		2C4EC31116ADA3C6008D12DF /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */; };
@@ -55,6 +54,9 @@
 		80922AA416A7FE9A00F8DDE7 /* PlaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */; };
 		80922AA716A9234B00F8DDE7 /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */; };
 		80922AAE16ACF90100F8DDE7 /* NewPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */; };
+		80922ABE16AE2EAF00F8DDE7 /* Location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80922ABD16AE2EAF00F8DDE7 /* Location@2x.png */; };
+		80922AC016AE307700F8DDE7 /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 80922ABF16AE307700F8DDE7 /* Location.png */; };
+		80922AC216AE30B200F8DDE7 /* Location_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 80922AC116AE30B200F8DDE7 /* Location_30.png */; };
 		80BE082C169C10AA00AC4A8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082B169C10AA00AC4A8F /* UIKit.framework */; };
 		80BE082E169C10AA00AC4A8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082D169C10AA00AC4A8F /* Foundation.framework */; };
 		80BE0830169C10AA00AC4A8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BE082F169C10AA00AC4A8F /* CoreGraphics.framework */; };
@@ -83,7 +85,6 @@
 		2C014BE2169F066C00D07196 /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOLDatabase.h; path = GeoloqiSDK_Utility/LOLDatabase.h; sourceTree = "<group>"; };
 		2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		2C49683E16AD6DF900431AB2 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "74-location.png"; path = "../../Desktop/NTU iOS Development Course/glyphish-icons/PNG icons/74-location.png"; sourceTree = "<group>"; };
 		2C49684016AD6E5000431AB2 /* MapPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPickerViewController.h; sourceTree = "<group>"; };
 		2C49684116AD6E5000431AB2 /* MapPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPickerViewController.m; sourceTree = "<group>"; };
 		2C4EC30D16ADA36B008D12DF /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -151,6 +152,9 @@
 		80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
 		80922AAC16ACF90000F8DDE7 /* NewPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlaceViewController.h; sourceTree = "<group>"; };
 		80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlaceViewController.m; sourceTree = "<group>"; };
+		80922ABD16AE2EAF00F8DDE7 /* Location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Location@2x.png"; sourceTree = "<group>"; };
+		80922ABF16AE307700F8DDE7 /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location.png; sourceTree = "<group>"; };
+		80922AC116AE30B200F8DDE7 /* Location_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location_30.png; sourceTree = "<group>"; };
 		80BE0827169C10AA00AC4A8F /* GourmetPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BE082B169C10AA00AC4A8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		80BE082D169C10AA00AC4A8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -347,6 +351,7 @@
 				8064270716A657390031867A /* GourmetPocket.entitlements */,
 				806426F416A55F5B0031867A /* GeoloqiData.xcdatamodeld */,
 				808C42B216A3F29600B378F3 /* iPhoneMain.storyboard */,
+				80BE0867169C1D9500AC4A8F /* LQConfig.h */,
 				80BE083A169C10AA00AC4A8F /* AppDelegate.h */,
 				80BE083B169C10AA00AC4A8F /* AppDelegate.m */,
 				808C42E716A3F6C800B378F3 /* MainViewController.h */,
@@ -367,7 +372,6 @@
 				808C42F716A404A100B378F3 /* ThirdPartyViewController.m */,
 				808C42F316A400E200B378F3 /* SettingTableViewController.h */,
 				808C42F416A400E200B378F3 /* SettingTableViewController.m */,
-				80BE0867169C1D9500AC4A8F /* LQConfig.h */,
 				80922A9C16A7FAC800F8DDE7 /* PullToRefreshClass */,
 				8064270516A5654D0031867A /* CoreData ManagedObject Subclass */,
 				8064270616A565810031867A /* old layouts */,
@@ -394,7 +398,9 @@
 		80BE084E169C13A200AC4A8F /* icons and image */ = {
 			isa = PBXGroup;
 			children = (
-				2C49683E16AD6DF900431AB2 /* 74-location.png */,
+				80922AC116AE30B200F8DDE7 /* Location_30.png */,
+				80922ABF16AE307700F8DDE7 /* Location.png */,
+				80922ABD16AE2EAF00F8DDE7 /* Location@2x.png */,
 				804957B916A54B3400C4CA3C /* mainPage_myGroups.png */,
 				804957BA16A54B3400C4CA3C /* mainPage_personalSettings.png */,
 				804957BB16A54B3400C4CA3C /* mainPage_pttFood.png */,
@@ -500,7 +506,9 @@
 				806426FC16A564E70031867A /* CHANGELOG.md in Resources */,
 				806426FE16A564E70031867A /* README.md in Resources */,
 				80922AA116A7FDD500F8DDE7 /* arrow.png in Resources */,
-				2C49683F16AD6DF900431AB2 /* 74-location.png in Resources */,
+				80922ABE16AE2EAF00F8DDE7 /* Location@2x.png in Resources */,
+				80922AC016AE307700F8DDE7 /* Location.png in Resources */,
+				80922AC216AE30B200F8DDE7 /* Location_30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
