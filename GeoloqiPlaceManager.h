@@ -30,6 +30,6 @@
 
 // API for view-controller: creates a new place
 //
-- (void)createNewPlace:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion withDictionary:(NSDictionary*)dictNewPlace;
+- (void)createNewPlace:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion withDictionary:(NSMutableDictionary*)mutableDictNewPlace;
 
 @end
