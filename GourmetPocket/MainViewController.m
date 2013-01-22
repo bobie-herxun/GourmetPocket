@@ -10,6 +10,7 @@
 #import "GroupTableViewController.h"
 #import "LQSession.h"
 #import "LQTracker.h"
+#import "LQConfig.h"
 
 static NSString *const constUsernameEmail = @"ahchic@hotmail.com"; //@"bobie@herxun.co";
 static NSString *const constPassword = @"ahchie77";
@@ -34,7 +35,9 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     //[self showLoadingIndicator];
+    [self requestSessionWithCurrentUser];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,25 +46,33 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - for "Loading" HUD
-- (void)showLoadingIndicator
+- (void)requestSessionWithCurrentUser
 {
-    if (!activityIndicator)
-    {
-        activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    }
+    LQSession *session = [LQSession savedSession];
     
-    [activityIndicator startAnimating];
-    activityIndicator.hidesWhenStopped = YES;
-    [self performSelector:@selector(afterLoading) withObject:nil afterDelay:4.0f];
+    NSArray* arrayValues = @[ @"client_credentials", LQ_APIKey, LQ_APISecret];
+    NSArray* arrayKeys = @[ @"grant_type", @"client_id", @"client_secret" ];
+    NSDictionary* dictPayload = [NSDictionary dictionaryWithObjects:arrayValues forKeys:arrayKeys];
+    
+    NSURLRequest *request = [session requestWithMethod:@"POST"
+                                                  path:@"/oauth/token"
+                                               payload:dictPayload];
+    
+    [session runAPIRequest:request completion:^(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"error");
+        }
+        else
+        {
+            NSLog(@"Oh yeah, access_token: %@", [responseDictionary objectForKey:@"access_token"]);
+            
+            [LQSession setSavedSession:[LQSession sessionWithAccessToken:[responseDictionary objectForKey:@"access_token"]]];
+            //[LQSession setSavedSession:[LQSession sessionWithAccessToken:@"6cd74-5b0a632ebede4c922f47bc1b440bcd9b8bf149af"]];
+        }
+    }];
 }
-
-- (void)afterLoading
-{
-    [activityIndicator stopAnimating];
-}
-//*/
 
 #pragma mark - methods of MainViewController
 
@@ -106,6 +117,8 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
                                                                userInfo:nil];
              
              _textLabelMain.text = @"Logged in successfully";
+             
+             [self requestSessionWithCurrentUser];
              
              [self registerPushAfterSuccessfulLogIn];
          }
