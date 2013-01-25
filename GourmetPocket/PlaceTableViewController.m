@@ -167,7 +167,7 @@
     UITableViewCell *cell;
     if ([m_places count] > 0)
     {
-        static NSString *CellIdentifier = @"Cell";
+        static NSString *CellIdentifier = @"cellIdPlace";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         // Configure the cell...
@@ -176,7 +176,7 @@
         cell.textLabel.text = [dictPlace objectForKey:@"name"];
         cell.detailTextLabel.text = [dictPlace objectForKey:@"geocode"];
     }
-    else if (![m_places count])
+    else
     {
         static NSString *CellIdentifier = @"cellIdCreateNewPlace";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
