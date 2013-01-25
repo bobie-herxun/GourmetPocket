@@ -46,7 +46,9 @@
 //    navController.title = @"GourmetPocket";
     
     [LQSession setAPIKey:LQ_APIKey];
-    
+
+    [LQSession sessionWithAccessToken:LQ_API_TOKEN];
+/*
     if ([LQSession savedSession])
     {
         // resume tracking in the previous state
@@ -84,6 +86,7 @@
             }
         }];
     }
+ */
     
     // You may wish to listen for the notification the SDK sends when a user has logged in successfully
     [[NSNotificationCenter defaultCenter] addObserver:self
