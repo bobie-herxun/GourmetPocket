@@ -72,7 +72,7 @@ static NSString *const kLQPlaceNewPlacePath = @"/place/create";
     
     NSDictionary* dictPayload = [NSDictionary dictionaryWithObject:layer_id forKey:@"layer_id"];
     
-    NSURLRequest *request = [session requestWithMethod:@"GET"
+    NSURLRequest *request = [session requestWithMethod:@"POST"
                                                   path:kLQPlaceListPath
                                                payload:dictPayload];
     [session runAPIRequest:request
@@ -96,7 +96,7 @@ static NSString *const kLQPlaceNewPlacePath = @"/place/create";
                         if ([numPlace intValue] > 0)
                         {
                             NSLog(@"");
-                            NSDictionary* dictPlace = [responseDictionary objectForKey:@"place"];
+                            NSDictionary* dictPlace = [responseDictionary objectForKey:@"places"];
                             for (NSDictionary* item in dictPlace)
                             {
                                 [_places addObject:item];

@@ -37,7 +37,7 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 	// Do any additional setup after loading the view.
     
     //[self showLoadingIndicator];
-    [self requestSessionWithCurrentUser];
+    //[self requestSessionWithCurrentUser];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,8 +50,14 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
 {
     LQSession *session = [LQSession savedSession];
     
-    NSArray* arrayValues = @[ @"client_credentials", LQ_APIKey, LQ_APISecret];
-    NSArray* arrayKeys = @[ @"grant_type", @"client_id", @"client_secret" ];
+    // /oauth/token, Assertion
+    //NSArray* arrayValues = @[ @"assertion", LQ_APIKey, LQ_APISecret, @"user_id", @"1y2g"]; //23qC
+    //NSArray* arrayKeys = @[ @"grant_type", @"client_id", @"client_secret", @"assertion_type", @"assertion" ];
+    
+    // /oauth/token, Password
+    NSArray* arrayValues = @[ @"password", @"ahchic@hotmail.com", @"ahchie77", LQ_APIKey, LQ_APISecret ];
+    NSArray* arrayKeys = @[ @"grant_type", @"username", @"password", @"client_id", @"client_secret" ];
+    
     NSDictionary* dictPayload = [NSDictionary dictionaryWithObjects:arrayValues forKeys:arrayKeys];
     
     NSURLRequest *request = [session requestWithMethod:@"POST"
@@ -68,7 +74,9 @@ static NSString *const constNewUsernameEmail = @"ahchic@hotmail.com";
         {
             NSLog(@"Oh yeah, access_token: %@", [responseDictionary objectForKey:@"access_token"]);
             
-            [LQSession setSavedSession:[LQSession sessionWithAccessToken:[responseDictionary objectForKey:@"access_token"]]];
+            LQSession* sesn = [LQSession sessionWithAccessToken:[responseDictionary objectForKey:@"access_token"]];
+            [LQSession setSavedSession:sesn];
+            //[LQSession setSavedSession:[LQSession sessionWithAccessToken:[responseDictionary objectForKey:@"access_token"]]];
             //[LQSession setSavedSession:[LQSession sessionWithAccessToken:@"6cd74-5b0a632ebede4c922f47bc1b440bcd9b8bf149af"]];
         }
     }];
