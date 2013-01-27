@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		2C014BE4169F066C00D07196 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C014BE1169F066C00D07196 /* NSString+URLEncoding.m */; };
 		2C014BE7169F116D00D07196 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */; };
+		2C29925C16B2E8C200E9F349 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C29925B16B2E8C200E9F349 /* PlaceDetailViewController.m */; };
 		2C49684216AD6E5000431AB2 /* MapPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C49684116AD6E5000431AB2 /* MapPickerViewController.m */; };
 		2C4EC30E16ADA36B008D12DF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC30D16ADA36B008D12DF /* AddressBook.framework */; };
 		2C4EC31116ADA3C6008D12DF /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */; };
+		2C76E73816B4F49C0071D93A /* GourmetPocket_newPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C76E73716B4F49C0071D93A /* GourmetPocket_newPic.png */; };
 		2C9922FA16AA841700474148 /* GeoloqiPlaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9922F916AA841700474148 /* GeoloqiPlaceManager.m */; };
 		802CAE5D169EC764008719F9 /* iPhoneIcon_Small_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */; };
 		802CAE5F169EC769008719F9 /* iPhoneIcon_Big_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 802CAE5E169EC769008719F9 /* iPhoneIcon_Big_114.png */; };
@@ -85,10 +87,13 @@
 		2C014BE2169F066C00D07196 /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOLDatabase.h; path = GeoloqiSDK_Utility/LOLDatabase.h; sourceTree = "<group>"; };
 		2C014BE3169F066C00D07196 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "GeoloqiSDK_Utility/NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2C29925A16B2E8C200E9F349 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		2C29925B16B2E8C200E9F349 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		2C49684016AD6E5000431AB2 /* MapPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPickerViewController.h; sourceTree = "<group>"; };
 		2C49684116AD6E5000431AB2 /* MapPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPickerViewController.m; sourceTree = "<group>"; };
 		2C4EC30D16ADA36B008D12DF /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		2C76E73716B4F49C0071D93A /* GourmetPocket_newPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GourmetPocket_newPic.png; sourceTree = "<group>"; };
 		2C9922F816AA841700474148 /* GeoloqiPlaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoloqiPlaceManager.h; sourceTree = "<group>"; };
 		2C9922F916AA841700474148 /* GeoloqiPlaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoloqiPlaceManager.m; sourceTree = "<group>"; };
 		802CAE5C169EC764008719F9 /* iPhoneIcon_Small_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Small_57.png; sourceTree = "<group>"; };
@@ -243,6 +248,23 @@
 			name = GeoloqiSDK_APIManagers;
 			sourceTree = "<group>";
 		};
+		2C9D680616B2DC2000DB351A /* Framework & Library */ = {
+			isa = PBXGroup;
+			children = (
+				2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */,
+				2C4EC30D16ADA36B008D12DF /* AddressBook.framework */,
+				80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */,
+				806426C016A55C600031867A /* CoreData.framework */,
+				802CAE96169FD8ED008719F9 /* MapKit.framework */,
+				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
+				80BE087E169C294300AC4A8F /* MessageUI.framework */,
+				80BE087C169C22D700AC4A8F /* CoreLocation.framework */,
+				80BE087A169C22CE00AC4A8F /* libsqlite3.dylib */,
+				2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */,
+			);
+			name = "Framework & Library";
+			sourceTree = "<group>";
+		};
 		802CAE9C169FFD60008719F9 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,21 +326,12 @@
 		80BE081C169C10AA00AC4A8F = {
 			isa = PBXGroup;
 			children = (
-				2C4EC31016ADA3C6008D12DF /* AddressBookUI.framework */,
-				2C4EC30D16ADA36B008D12DF /* AddressBook.framework */,
-				80922A7E16A6B2B000F8DDE7 /* QuartzCore.framework */,
-				806426C016A55C600031867A /* CoreData.framework */,
-				802CAE96169FD8ED008719F9 /* MapKit.framework */,
-				802CAE69169ECA92008719F9 /* CoreFoundation.framework */,
-				80BE087E169C294300AC4A8F /* MessageUI.framework */,
-				80BE087C169C22D700AC4A8F /* CoreLocation.framework */,
-				80BE087A169C22CE00AC4A8F /* libsqlite3.dylib */,
-				2C014BE6169F116D00D07196 /* libsqlite3.0.dylib */,
+				2C9D680616B2DC2000DB351A /* Framework & Library */,
 				80BE085D169C149100AC4A8F /* Default.png */,
 				80BE085B169C148400AC4A8F /* Default@2x.png */,
 				80BE0831169C10AA00AC4A8F /* GourmetPocket */,
-				80BE0870169C204A00AC4A8F /* GeoloqiSDK */,
 				2C014BE5169F093C00D07196 /* GeoloqiSDK_APIManagers */,
+				80BE0870169C204A00AC4A8F /* GeoloqiSDK */,
 				2C014BE0169F062600D07196 /* GeoloqiSDK_Utility */,
 				80BE084E169C13A200AC4A8F /* icons and image */,
 				802CAE9C169FFD60008719F9 /* Graphics */,
@@ -364,6 +377,8 @@
 				80922AA616A9234B00F8DDE7 /* NewGroupViewController.m */,
 				80922AA216A7FE9900F8DDE7 /* PlaceTableViewController.h */,
 				80922AA316A7FE9900F8DDE7 /* PlaceTableViewController.m */,
+				2C29925A16B2E8C200E9F349 /* PlaceDetailViewController.h */,
+				2C29925B16B2E8C200E9F349 /* PlaceDetailViewController.m */,
 				80922AAC16ACF90000F8DDE7 /* NewPlaceViewController.h */,
 				80922AAD16ACF90100F8DDE7 /* NewPlaceViewController.m */,
 				2C49684016AD6E5000431AB2 /* MapPickerViewController.h */,
@@ -398,6 +413,7 @@
 		80BE084E169C13A200AC4A8F /* icons and image */ = {
 			isa = PBXGroup;
 			children = (
+				2C76E73716B4F49C0071D93A /* GourmetPocket_newPic.png */,
 				80922AC116AE30B200F8DDE7 /* Location_30.png */,
 				80922ABF16AE307700F8DDE7 /* Location.png */,
 				80922ABD16AE2EAF00F8DDE7 /* Location@2x.png */,
@@ -509,6 +525,7 @@
 				80922ABE16AE2EAF00F8DDE7 /* Location@2x.png in Resources */,
 				80922AC016AE307700F8DDE7 /* Location.png in Resources */,
 				80922AC216AE30B200F8DDE7 /* Location_30.png in Resources */,
+				2C76E73816B4F49C0071D93A /* GourmetPocket_newPic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +561,7 @@
 				2C9922FA16AA841700474148 /* GeoloqiPlaceManager.m in Sources */,
 				80922AAE16ACF90100F8DDE7 /* NewPlaceViewController.m in Sources */,
 				2C49684216AD6E5000431AB2 /* MapPickerViewController.m in Sources */,
+				2C29925C16B2E8C200E9F349 /* PlaceDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
