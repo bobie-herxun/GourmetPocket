@@ -20,7 +20,7 @@
     IBOutlet UIActivityIndicatorView *activityIndicator;
 }
 
-- (void)cancelNewPlace;
+- (void)backToPlaceTable;
 - (void)createNewPlaceWithDictionary:(NSDictionary*)dictNewPlace;
 
 @property (nonatomic, assign) GroupTableViewController* parentGroupTableView;

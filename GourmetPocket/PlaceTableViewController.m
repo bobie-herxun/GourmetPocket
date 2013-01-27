@@ -8,6 +8,7 @@
 
 #import "PlaceTableViewController.h"
 #import "NewPlaceViewController.h"
+#import "PlaceDetailViewController.h"
 #import "GeoloqiPlaceManager.h"
 
 @interface PlaceTableViewController ()
@@ -66,9 +67,25 @@
         NewPlaceViewController* newPlaceViewController = segue.destinationViewController;
         newPlaceViewController.parentPlaceTableViewController = self;
     }
+    else if ([segue.identifier isEqualToString:@"segueIdPlaceDetail"])
+    {
+        PlaceDetailViewController* detailPlaceViewController = segue.destinationViewController;
+        detailPlaceViewController.parentPlaceTableViewController = self;
+        
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary* currentPlace = [m_places objectAtIndex:indexPath.row];
+        
+        NSArray* arrayValue = @[ [currentPlace objectForKey:@"name"],
+                                 [currentPlace objectForKey:@"latitude"],
+                                 [currentPlace objectForKey:@"longitude"] ];
+        NSArray* arrayKey = @[ @"name", @"latitude", @"longitude" ];
+        NSDictionary* dictPlace = [NSDictionary dictionaryWithObjects:arrayValue forKeys:arrayKey] ;
+        
+        [detailPlaceViewController initPlaceDetails:dictPlace];
+    }
 }
 
-- (void)cancelNewPlace
+- (void)backToPlaceTable
 {
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -187,6 +204,34 @@
     return cell;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row];
+    NSUInteger count = [m_places count];
+    
+    if (row < count) {
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+                                            forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row];
+    NSUInteger count = [m_places count];
+    
+    if (row < count) {
+        [m_places removeObjectAtIndex:row];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView reloadData];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -287,6 +332,7 @@
         return;
     }
     
+    [m_places removeAllObjects];
     for (NSDictionary *item in places)
     {
         m_places = places;
