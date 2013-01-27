@@ -106,7 +106,7 @@
 - (IBAction)cancelNewPlace:(id)sender {
     if (_parentPlaceTableViewController)
     {
-        [_parentPlaceTableViewController cancelNewPlace];
+        [_parentPlaceTableViewController backToPlaceTable];
     }
     else
     {
