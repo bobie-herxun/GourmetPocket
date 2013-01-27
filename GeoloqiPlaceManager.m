@@ -68,6 +68,8 @@ static NSString *const kLQPlaceNewPlacePath = @"/place/create";
 
 - (void)reloadPlacesFromAPI:(void (^)(NSHTTPURLResponse *response, NSDictionary *responseDictionary, NSError *error))completion withLayerId:(NSString*)layer_id
 {
+    [m_places removeAllObjects];
+    
     LQSession *session = [LQSession savedSession];
     
     NSDictionary* dictPayload = [NSDictionary dictionaryWithObject:layer_id forKey:@"layer_id"];
